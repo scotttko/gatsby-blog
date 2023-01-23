@@ -1,10 +1,17 @@
-import * as React from "react"
-import { graphql } from "gatsby"
+import * as React from 'react'
+import { graphql } from 'gatsby'
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from 'components/layout'
+import Seo from 'components/seo'
+import { SiteSiteMetadata } from 'types/types'
 
-const NotFoundPage = ({ data, location }) => {
+interface NotFoundPageProps {
+  data: {
+    site: { siteMetadata: SiteSiteMetadata }
+  }
+  location: Location
+}
+const NotFoundPage = ({ data, location }: NotFoundPageProps) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
