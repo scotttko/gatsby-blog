@@ -4,8 +4,8 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
  */
 
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+import path from 'path'
+import { createFilePath } from 'gatsby-source-filesystem'
 
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   const output = getConfig().output || {}
