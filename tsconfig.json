@@ -14,12 +14,15 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "jsxImportSource": "@emotion/react",
     "baseUrl": "./src",
     "paths": {
       "components/*": ["./components/*"],
+      "layouts/*": ["./layouts/*"],
+      "styles/*": ["./styles/*"],
       "utils/*": ["./utils/*"],
-      "hooks/*": ["./hooks/*"],
-    },
+      "hooks/*": ["./hooks/*"]
+    }
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
