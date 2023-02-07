@@ -1,14 +1,14 @@
-import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import Layout from 'components/layout'
+// import Layout from 'components/layout'
 import Bio from 'components/bio'
 import Seo from 'components/seo'
-import { MarkdownRemark, SiteSiteMetadata } from 'types/types'
+import { MarkdownRemark, SiteMetadata } from 'types/types'
+import Layout from 'layouts'
 
 interface BlogIndexProps {
   data: {
-    site: { siteMetadata: SiteSiteMetadata }
+    site: { siteMetadata: SiteMetadata }
     allMarkdownRemark: { nodes: MarkdownRemark[] }
   }
   location: Location

@@ -1,31 +1,33 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql } from 'gatsby'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import { Fields, Frontmatter, MarkdownRemark, SiteMetadata } from 'types/types'
+import Bio from '../components/bio'
+import Layout from '../components/layout'
+import Seo from '../components/seo'
 
+interface BlogPostTemplateProps {
+  data: {
+    previous: { fields: Fields; frontmatter: Frontmatter } | null
+    next: { fields: Fields; frontmatter: Frontmatter } | null
+    site: { siteMetadata: SiteMetadata }
+    markdownRemark: Omit<MarkdownRemark, 'fields'> & { html: string }
+  }
+  location: Location
+}
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
   location,
-}) => {
+}: BlogPostTemplateProps) => {
   const siteTitle = site.siteMetadata?.title || `Title`
 
   return (
     <Layout location={location} title={siteTitle}>
-      <article
-        className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
+      <article className="blog-post" itemScope itemType="http://schema.org/Article">
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
+        <section dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
         <hr />
         <footer>
           <Bio />
@@ -61,23 +63,18 @@ const BlogPostTemplate = ({
   )
 }
 
-export const Head = ({ data: { markdownRemark: post } }) => {
-  return (
-    <Seo
-      title={post.frontmatter.title}
-      description={post.frontmatter.description || post.excerpt}
-    />
-  )
-}
+export const Head = ({
+  data: { markdownRemark: post },
+}: {
+  data: { markdownRemark: MarkdownRemark }
+}) => (
+  <Seo title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
+)
 
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug(
-    $id: String!
-    $previousPostId: String
-    $nextPostId: String
-  ) {
+  query BlogPostBySlug($id: String!, $previousPostId: String, $nextPostId: String) {
     site {
       siteMetadata {
         title

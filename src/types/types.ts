@@ -1,4 +1,4 @@
-export interface SiteSiteMetadata {
+export interface SiteMetadata {
   title: string
   author: Author
   siteUrl: string

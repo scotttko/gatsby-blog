@@ -1,13 +1,12 @@
-import * as React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from 'components/layout'
 import Seo from 'components/seo'
-import { SiteSiteMetadata } from 'types/types'
+import { SiteMetadata } from 'types/types'
 
 interface NotFoundPageProps {
   data: {
-    site: { siteMetadata: SiteSiteMetadata }
+    site: { siteMetadata: SiteMetadata }
   }
   location: Location
 }

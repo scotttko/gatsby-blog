@@ -15,6 +15,8 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
     resolve: {
       alias: {
         components: path.resolve(__dirname, 'src/components'),
+        layouts: path.resolve(__dirname, 'src/layouts'),
+        styles: path.resolve(__dirname, 'src/styles'),
         utils: path.resolve(__dirname, 'src/utils'),
         hooks: path.resolve(__dirname, 'src/hooks'),
       },
@@ -23,7 +25,7 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
 }
 
 // Define the template for blog post
-const blogPost = path.resolve(`./src/templates/blog-post.js`)
+const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
