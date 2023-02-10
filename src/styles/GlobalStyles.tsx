@@ -1,4 +1,3 @@
-import React from 'react'
 import { css, Global, Theme } from '@emotion/react'
 
 const style = (theme: Theme) => css`
@@ -10,8 +9,9 @@ const style = (theme: Theme) => css`
   }
 
   html {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-      Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI,
+      Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+      Segoe UI Symbol, Noto Color Emoji;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
