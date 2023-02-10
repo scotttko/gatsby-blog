@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 
-import Layout from 'components/layout'
+import Layout from 'layouts'
 import Seo from 'components/seo'
 import { SiteMetadata } from 'types/types'
 

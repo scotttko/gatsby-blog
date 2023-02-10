@@ -3,6 +3,8 @@ import { ThemeProvider } from '@emotion/react'
 import theme from 'styles/theme'
 import GlobalStyles from 'styles/GlobalStyles'
 import { ReactNode } from 'react'
+import Header from 'components/header'
+import Footer from 'components/footer'
 import * as S from './styles'
 
 interface LayoutProps {
@@ -32,23 +34,19 @@ const Layout = ({ location, title, children }: LayoutProps) => {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <S.Wrapper>
-        <header className="global-header">{header}</header>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+        <Header location={location}>{header}</Header>
+        <S.MainContainer>{children}</S.MainContainer>
+        <Footer>
+          © {new Date().getFullYear()}
+          <S.FooterLink href="https://github.com/SangWonKo" target="_blank">
+            {title}
+          </S.FooterLink>
+          Built with
+          <S.FooterLink href="https://www.gatsbyjs.com/" target="_blank">
+            Gatsby
+          </S.FooterLink>
+        </Footer>
       </S.Wrapper>
-      {/* <div className="global-wrapper" data-is-root-path={isRootPath}>
-        <header className="global-header">{header}</header>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div> */}
     </ThemeProvider>
   )
 }
