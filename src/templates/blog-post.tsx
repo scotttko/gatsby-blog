@@ -1,8 +1,9 @@
 import { Link, graphql } from 'gatsby'
+import Layout from 'layouts'
 
 import { Fields, Frontmatter, MarkdownRemark, SiteMetadata } from 'types/types'
 import Bio from '../components/bio'
-import Layout from '../components/layout'
+// import Layout from '../components/layout'
 import Seo from '../components/seo'
 
 interface BlogPostTemplateProps {
@@ -30,7 +31,7 @@ const BlogPostTemplate = ({
         <section dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
         <hr />
         <footer>
-          <Bio />
+          <Bio title={siteTitle} />
         </footer>
       </article>
       <nav className="blog-post-nav">
