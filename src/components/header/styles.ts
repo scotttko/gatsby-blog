@@ -5,12 +5,12 @@ export const HeaderWrapper = styled.header`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 60px;
+  /* height: 60px; */
   position: fixed;
   top: 0;
   left: 0;
-  background-color: ${({ theme }) => theme.palette.white};
   z-index: 100;
+  padding: 16px 0;
 `
 
 export const HeaderContainer = styled.div`

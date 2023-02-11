@@ -7,8 +7,6 @@ export const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   word-break: keep-all;
-
-  background-color: ${({ theme }) => theme.palette.white};
 `
 
 export const MainContainer = styled.main`
@@ -23,6 +21,19 @@ export const MainContainer = styled.main`
 `
 
 export const FooterLink = styled.a`
+  transition: color 0.3s;
   color: ${({ theme }) => theme.palette.grey60};
   margin: 0 4px;
+`
+
+export const ThemeButton = styled.button`
+  padding: 6px 8px;
+  background-color: transparent;
+  border-radius: 8px;
+  color: #fbcc13;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.grey10};
+  }
 `

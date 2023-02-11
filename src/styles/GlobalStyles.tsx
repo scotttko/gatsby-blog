@@ -17,8 +17,8 @@ const style = (theme: Theme) => css`
     overflow-y: scroll;
     font-size: 14px;
     color: ${theme.palette.black};
-    /* transition: 0.3s; */
-    background-color: ${theme.palette.grey10};
+    transition: background-color 0.3s, color 0.3s;
+    background-color: ${theme.palette.white};
     a {
       color: ${theme.palette.black};
       text-decoration: none;

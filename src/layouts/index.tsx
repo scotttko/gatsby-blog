@@ -1,10 +1,11 @@
-import { Link } from 'gatsby'
 import { ThemeProvider } from '@emotion/react'
-import theme from 'styles/theme'
 import GlobalStyles from 'styles/GlobalStyles'
 import { ReactNode } from 'react'
 import Header from 'components/header'
 import Footer from 'components/footer'
+import { darkTheme, lightTheme } from 'styles/theme'
+import useTheme from 'hooks/useTheme'
+import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs'
 import * as S from './styles'
 
 interface LayoutProps {
@@ -13,28 +14,17 @@ interface LayoutProps {
   children: ReactNode
 }
 const Layout = ({ location, title, children }: LayoutProps) => {
-  const isRootPath = location.pathname === '/'
-  let header
-
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
-  }
+  const { theme, toggleTheme } = useTheme()
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
       <S.Wrapper>
-        <Header location={location}>{header}</Header>
+        <Header location={location}>
+          <S.ThemeButton onClick={() => toggleTheme()} type="button">
+            {theme === 'light' ? <BsFillSunFill size={24} /> : <BsFillMoonStarsFill size={24} />}
+          </S.ThemeButton>
+        </Header>
         <S.MainContainer>{children}</S.MainContainer>
         <Footer>
           © {new Date().getFullYear()}
