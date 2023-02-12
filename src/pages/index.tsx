@@ -1,4 +1,4 @@
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 // import Layout from 'components/layout'
 // import Bio from 'components/bio'
@@ -6,6 +6,7 @@ import Seo from 'components/seo'
 import { MarkdownRemark, SiteMetadata } from 'types/types'
 import Layout from 'layouts'
 import Bio from 'components/bio'
+import RecentPosts from 'components/recent-posts'
 
 interface BlogIndexProps {
   data: {
@@ -19,22 +20,12 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Bio title={siteTitle} />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the directory you specified
-          for the "gatsby-source-filesystem" plugin in gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
-
   return (
     <Layout location={location} title={siteTitle}>
       <Bio title={siteTitle} />
-      <ol style={{ listStyle: `none` }}>
+      {posts.length > 0 ? <RecentPosts posts={posts} /> : <p>No recent posts</p>}
+
+      {/* <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
           const title = post.frontmatter.title || post.fields.slug
 
@@ -61,7 +52,7 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
             </li>
           )
         })}
-      </ol>
+      </ol> */}
     </Layout>
   )
 }
@@ -82,9 +73,9 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 4) {
       nodes {
-        excerpt
+        excerpt(pruneLength: 200, truncate: true)
         fields {
           slug
         }
@@ -92,6 +83,11 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          thumbnail {
+            childImageSharp {
+              gatsbyImageData(height: 160, placeholder: BLURRED)
+            }
+          }
         }
       }
     }
