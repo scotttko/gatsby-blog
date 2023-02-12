@@ -1,3 +1,5 @@
+import { IGatsbyImageData } from 'gatsby-plugin-image'
+
 export interface SiteMetadata {
   title: string
   author: Author
@@ -25,6 +27,11 @@ export interface Frontmatter {
   title: string
   description: string
   date: string
+  thumbnail: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData
+    }
+  }
 }
 
 export interface Fields {

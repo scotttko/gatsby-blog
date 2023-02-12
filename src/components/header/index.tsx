@@ -16,10 +16,10 @@ const Header = ({ children, location }: HeaderProps) => {
           <S.HeaderLink to="/" selected={pathname === '/'} padding="0">
             <StaticImage src="../../images/logo.png" alt="logo" width={40} height={40} />
           </S.HeaderLink>
-          <S.HeaderLink to="/posts" selected={pathname === '/posts'}>
+          <S.HeaderLink to="/posts" selected={pathname === '/posts/'}>
             Posts
           </S.HeaderLink>
-          <S.HeaderLink to="/about" selected={pathname === '/about'}>
+          <S.HeaderLink to="/about" selected={pathname === '/about/'}>
             About
           </S.HeaderLink>
         </S.HeaderMenu>

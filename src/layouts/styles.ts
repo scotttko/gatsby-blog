@@ -7,6 +7,9 @@ export const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   word-break: keep-all;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: ${({ theme }) => theme.palette.white};
+  color: ${({ theme }) => theme.palette.black};
 `
 
 export const MainContainer = styled.main`
@@ -27,7 +30,9 @@ export const FooterLink = styled.a`
 `
 
 export const ThemeButton = styled.button`
-  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
   background-color: transparent;
   border-radius: 8px;
   color: #fbcc13;

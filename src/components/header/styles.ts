@@ -10,7 +10,9 @@ export const HeaderWrapper = styled.header`
   top: 0;
   left: 0;
   z-index: 100;
-  padding: 16px 0;
+  padding: 10px 0;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: ${({ theme }) => theme.palette.white};
 `
 
 export const HeaderContainer = styled.div`
@@ -28,9 +30,11 @@ export const HeaderMenu = styled.div`
 `
 
 export const HeaderLink = styled(Link)<{ selected: boolean; padding?: string }>`
+  display: flex;
+  align-items: center;
   font-size: 18px;
   line-height: 1.5;
-  font-weight: ${({ selected }) => (selected ? 600 : 400)};
+  font-weight: ${({ selected }) => (selected ? 700 : 400)};
   padding: ${({ padding }) => padding || '6px 12px'};
   border-radius: 8px;
   color: ${({ theme }) => theme.palette.black};

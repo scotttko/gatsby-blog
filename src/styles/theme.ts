@@ -14,7 +14,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   palette: {
-    white: '#121212',
+    white: '#232326',
     grey10: '#303033',
     grey20: '#5D5D5D',
     grey30: '#A0A0A0',
