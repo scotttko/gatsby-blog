@@ -21,6 +21,7 @@ export interface MarkdownRemark extends Node {
   frontmatter: Frontmatter
   fields: Fields
   excerpt: string
+  html: string
 }
 
 export interface Frontmatter {

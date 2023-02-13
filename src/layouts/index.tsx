@@ -7,6 +7,7 @@ import { darkTheme, lightTheme } from 'styles/theme'
 import useTheme from 'hooks/useTheme'
 import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs'
 import * as S from './styles'
+import '../styles/style.scss'
 
 interface LayoutProps {
   location: Location

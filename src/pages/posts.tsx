@@ -1,4 +1,5 @@
 import AllPosts from 'components/all-posts'
+import Seo from 'components/seo'
 import { graphql } from 'gatsby'
 import Layout from 'layouts'
 import { MarkdownRemark, SiteMetadata } from 'types/types'
@@ -24,6 +25,8 @@ const Posts = ({ data, location }: PostsProps) => {
 
 export default Posts
 
+export const Head = () => <Seo title="Posts" />
+
 export const pageQuery = graphql`
   {
     site {
@@ -31,7 +34,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+    allMarkdownRemark(
+      filter: { frontmatter: { title: { ne: "resume" } } }
+      sort: { frontmatter: { date: DESC } }
+    ) {
       nodes {
         excerpt(pruneLength: 200, truncate: true)
         fields {

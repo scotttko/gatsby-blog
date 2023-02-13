@@ -73,7 +73,11 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 4) {
+    allMarkdownRemark(
+      filter: { frontmatter: { title: { ne: "resume" } } }
+      sort: { frontmatter: { date: DESC } }
+      limit: 4
+    ) {
       nodes {
         excerpt(pruneLength: 200, truncate: true)
         fields {

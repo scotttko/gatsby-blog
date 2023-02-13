@@ -14,7 +14,13 @@ const Header = ({ children, location }: HeaderProps) => {
       <S.HeaderContainer>
         <S.HeaderMenu>
           <S.HeaderLink to="/" selected={pathname === '/'} padding="0">
-            <StaticImage src="../../images/logo.png" alt="logo" width={40} height={40} />
+            <StaticImage
+              src="../../images/logo.png"
+              alt="logo"
+              width={40}
+              height={40}
+              placeholder="blurred"
+            />
           </S.HeaderLink>
           <S.HeaderLink to="/posts" selected={pathname === '/posts/'}>
             Posts
