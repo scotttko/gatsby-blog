@@ -1,5 +1,5 @@
 import { GatsbyImage } from 'gatsby-plugin-image'
-import { MarkdownRemark } from 'types/types'
+import { MarkdownRemark } from 'types'
 import * as S from './styles'
 
 interface RecentPostCardProps {

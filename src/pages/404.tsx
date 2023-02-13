@@ -2,7 +2,7 @@ import { graphql } from 'gatsby'
 
 import Layout from 'layouts'
 import Seo from 'components/seo'
-import { SiteMetadata } from 'types/types'
+import { SiteMetadata } from 'types'
 
 interface NotFoundPageProps {
   data: {

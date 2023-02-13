@@ -2,7 +2,7 @@ import About from 'components/about'
 import Seo from 'components/seo'
 import { graphql } from 'gatsby'
 import Layout from 'layouts'
-import { MarkdownRemark, SiteMetadata } from 'types/types'
+import { MarkdownRemark, SiteMetadata } from 'types'
 
 interface AboutPageProps {
   data: {
@@ -13,7 +13,6 @@ interface AboutPageProps {
 }
 
 const AboutPage = ({ data, location }: AboutPageProps) => {
-  console.log(data)
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const resume = data.allMarkdownRemark.nodes[0].html
 

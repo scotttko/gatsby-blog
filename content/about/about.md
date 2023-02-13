@@ -24,8 +24,6 @@ _<div align="right"><sub><i>Last updated: 2023.02.13</i></sub></div>_
 
 # <u>Experiences</u>
 
-<hr />
-
 ## 주식회사 산타
 
 |              |                                                                               |

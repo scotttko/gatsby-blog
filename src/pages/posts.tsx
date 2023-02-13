@@ -2,7 +2,7 @@ import AllPosts from 'components/all-posts'
 import Seo from 'components/seo'
 import { graphql } from 'gatsby'
 import Layout from 'layouts'
-import { MarkdownRemark, SiteMetadata } from 'types/types'
+import { MarkdownRemark, SiteMetadata } from 'types'
 
 interface PostsProps {
   data: {

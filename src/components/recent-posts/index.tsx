@@ -1,5 +1,5 @@
 import { FiChevronRight } from 'react-icons/fi'
-import { MarkdownRemark } from 'types/types'
+import { MarkdownRemark } from 'types'
 import RecentPostCard from './RecentPostCard'
 import * as S from './styles'
 

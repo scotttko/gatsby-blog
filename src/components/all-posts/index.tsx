@@ -1,4 +1,4 @@
-import { MarkdownRemark } from 'types/types'
+import { MarkdownRemark } from 'types'
 import PostItem from './PostItem'
 import * as S from './styles'
 
