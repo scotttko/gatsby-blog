@@ -24,6 +24,10 @@ const style = (theme: Theme) => css`
       text-decoration: none;
     }
   }
+
+  p {
+    color: ${theme.palette.grey70};
+  }
 `
 
 const GlobalStyles = () => <Global styles={(theme) => style(theme)} />
