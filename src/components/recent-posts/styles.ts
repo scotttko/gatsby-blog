@@ -26,12 +26,12 @@ export const RecentPostCard = styled(Link)`
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: ${({ theme }) => theme.palette.grey10};
+  background-color: ${({ theme }) => theme.palette.buttonBgColor};
   border-radius: 8px;
 `
 
 export const CardThumb = styled.div`
-  background-color: ${({ theme }) => theme.palette.grey20};
+  background-color: ${({ theme }) => theme.palette.buttonBgHoverColor};
   width: 100%;
   /* height: 100%; */
   height: 160px;

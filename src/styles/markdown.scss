@@ -669,8 +669,9 @@ $content-image-max-height: 560px;
 
 .markdown blockquote {
   padding: 0 1em;
-  color: #6a737d;
-  border-left: 2px solid var(--markdown-blockquote-border-color);
+  color: #e4e4e4;
+  border-left: 4px solid;
+  // background-color: #eee;
 }
 
 .markdown blockquote > :first-of-type {
@@ -787,12 +788,10 @@ $content-image-max-height: 560px;
   font-weight: 600;
 }
 
-.markdown table td {
-  padding: 8px 13px;
-}
 
 .markdown table td,
 .markdown table th {
+  padding: 8px 13px;
   border-bottom: 1px solid #E4E4E4;
 }
 

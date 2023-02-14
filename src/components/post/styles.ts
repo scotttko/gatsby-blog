@@ -10,7 +10,7 @@ export const PostWrapper = styled.article`
 export const PostHeaderWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid ${({ theme }) => theme.palette.grey20};
+  border-bottom: 1px solid ${({ theme }) => theme.palette.buttonBgHoverColor};
   margin-bottom: 32px;
 `
 
@@ -26,5 +26,5 @@ export const PostDate = styled.p`
   font-weight: 500;
   letter-spacing: -0.25px;
   margin-bottom: 16px;
-  color: ${({ theme }) => theme.palette.grey50};
+  color: ${({ theme }) => theme.palette.subTextColor};
 `

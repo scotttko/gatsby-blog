@@ -12,7 +12,7 @@ export const HeaderWrapper = styled.header`
   z-index: 100;
   padding: 10px 0;
   transition: background-color 0.3s, color 0.3s;
-  background-color: ${({ theme }) => theme.palette.white};
+  background-color: ${({ theme }) => theme.palette.bgColor};
 `
 
 export const HeaderContainer = styled.div`
@@ -37,9 +37,9 @@ export const HeaderLink = styled(Link)<{ selected: boolean; padding?: string }>`
   font-weight: ${({ selected }) => (selected ? 700 : 400)};
   padding: ${({ padding }) => padding || '6px 12px'};
   border-radius: 8px;
-  color: ${({ theme }) => theme.palette.black};
+  color: ${({ theme }) => theme.palette.mainTextColor};
 
   &:hover {
-    background-color: ${({ theme }) => theme.palette.grey10};
+    background-color: ${({ theme }) => theme.palette.buttonBgColor};
   }
 `

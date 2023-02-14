@@ -16,17 +16,42 @@ const style = (theme: Theme) => css`
     height: 100%;
     overflow-y: scroll;
     font-size: 14px;
-    color: ${theme.palette.black};
+    color: ${theme.palette.mainTextColor};
     transition: background-color 0.3s, color 0.3s;
-    background-color: ${theme.palette.white};
+    background-color: ${theme.palette.bgColor};
     a {
-      color: ${theme.palette.black};
+      color: ${theme.palette.mainTextColor};
       text-decoration: none;
     }
-  }
 
-  p {
-    color: ${theme.palette.grey70};
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong {
+      color: ${theme.palette.mainTextColor};
+    }
+
+    p,
+    li,
+    td {
+      color: ${theme.palette.subTextColor};
+    }
+
+    td,
+    th {
+      border-bottom: 1px solid ${theme.palette.buttonBgHoverColor} !important;
+    }
+
+    hr {
+      background-color: ${theme.palette.buttonBgHoverColor} !important;
+    }
+
+    blockquote {
+      color: ${theme.palette.buttonBgHoverColor} !important;
+    }
   }
 `
 

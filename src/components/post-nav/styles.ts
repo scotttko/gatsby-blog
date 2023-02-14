@@ -12,14 +12,14 @@ export const PostNavLink = styled(Link)<{ dir: 'prev' | 'next' }>`
   display: flex;
   align-items: center;
   margin: ${({ dir }) => (dir === 'next' ? '0 0 0 auto' : '0 auto 0 0')};
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.5;
-  padding: 8px 10px;
+  padding: 8px 12px;
   border-radius: 8px;
-  color: ${({ theme }) => theme.palette.black};
-  background-color: ${({ theme }) => theme.palette.grey10};
+  color: ${({ theme }) => theme.palette.mainTextColor};
+  background-color: ${({ theme }) => theme.palette.buttonBgColor};
 
   &:hover {
-    background-color: ${({ theme }) => theme.palette.grey20};
+    background-color: ${({ theme }) => theme.palette.buttonBgHoverColor};
   }
 `

@@ -21,7 +21,7 @@ export const BioTitle = styled.h1`
   margin-bottom: 12px;
 `
 
-export const BioSubtitle = styled.p`
+export const BioSubtitle = styled.h2`
   font-size: 32px;
   font-weight: 700;
   letter-spacing: -0.25px;
@@ -45,12 +45,12 @@ export const BioSocialWrapper = styled.div`
 
   a {
     font-size: 18px;
-    background-color: ${({ theme }) => theme.palette.grey10};
+    background-color: ${({ theme }) => theme.palette.buttonBgColor};
     border-radius: 12px;
     padding: 8px 12px;
 
     &:hover {
-      background-color: ${({ theme }) => theme.palette.grey20};
+      background-color: ${({ theme }) => theme.palette.buttonBgHoverColor};
     }
   }
 `

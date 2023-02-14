@@ -30,7 +30,7 @@ export const PostItemContainer = styled(Link)`
   border-radius: 8px;
 
   &:hover {
-    background-color: ${({ theme }) => theme.palette.grey10};
+    background-color: ${({ theme }) => theme.palette.buttonBgColor};
   }
 `
 export const PostItemTitle = styled.p`
@@ -47,6 +47,6 @@ export const PostItemDesc = styled.p`
 
 export const PostItemDate = styled.p`
   font-size: 12px;
-  color: ${({ theme }) => theme.palette.grey60};
+  color: ${({ theme }) => theme.palette.buttonBgHoverColor};
   text-align: end;
 `

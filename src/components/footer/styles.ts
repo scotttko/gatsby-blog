@@ -2,12 +2,12 @@ import styled from '@emotion/styled'
 
 export const FooterWrapper = styled.footer`
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   width: 100%;
   height: 60px;
   margin-top: auto;
   transition: background-color 0.3s;
-  background-color: ${({ theme }) => theme.palette.grey10};
+  background-color: ${({ theme }) => theme.palette.buttonBgColor};
   padding: 0 32px;
 `
 
