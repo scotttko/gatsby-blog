@@ -2,6 +2,7 @@
 title: Markdown Template Example
 date: '2023-02-14T00:00:00Z'
 description: 마크다운 문법 사용 템플릿
+thumbnail: ./markdown.jpeg
 ---
 
 # h1 Heading

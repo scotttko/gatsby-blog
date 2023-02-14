@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { MOBILE_MEDIA_QUERY } from 'styles/theme'
 
 export const BioWrapper = styled.section`
   display: flex;
@@ -19,6 +20,11 @@ export const BioTitle = styled.h1`
   font-weight: 800;
   letter-spacing: -0.25px;
   margin-bottom: 12px;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
 `
 
 export const BioSubtitle = styled.h2`
@@ -26,6 +32,11 @@ export const BioSubtitle = styled.h2`
   font-weight: 700;
   letter-spacing: -0.25px;
   margin-bottom: 18px;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
 `
 
 export const BioContent = styled.p`
@@ -35,6 +46,10 @@ export const BioContent = styled.p`
 
   strong {
     font-weight: 700;
+  }
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 16px;
   }
 `
 

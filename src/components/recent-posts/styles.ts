@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import { MOBILE_MEDIA_QUERY } from 'styles/theme'
 
 export const RecentPostsWrapper = styled.section`
   display: flex;
@@ -13,6 +14,11 @@ export const Title = styled.h1`
   font-weight: 700;
   letter-spacing: -0.25px;
   margin-bottom: 24px;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
 `
 
 export const RecentPostContainer = styled.div`
@@ -20,6 +26,11 @@ export const RecentPostContainer = styled.div`
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-gap: 16px;
   width: 100%;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-gap: 24px;
+  }
 `
 
 export const RecentPostCard = styled(Link)`
@@ -60,23 +71,8 @@ export const PostLink = styled(Link)`
   width: fit-content;
   display: flex;
   align-items: center;
-  /* display: block;
-  position: relative;
 
-  &:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: -1px;
-    left: 0;
-    background-color: black;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 16px;
   }
-  &:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  } */
 `

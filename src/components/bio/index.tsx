@@ -7,12 +7,15 @@
 
 import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import { useMediaQuery } from 'react-responsive'
+import { MOBILE_MAXWIDTH } from 'styles/theme'
 import * as S from './styles'
 
 interface BioProps {
   title?: string
 }
 const Bio = ({ title }: BioProps) => {
+  const isMobile = useMediaQuery({ query: MOBILE_MAXWIDTH })
   const data = useStaticQuery(graphql`
     query BioQuery {
       image: file(absolutePath: { regex: "/profile_image.jpeg/" }) {
@@ -57,11 +60,13 @@ const Bio = ({ title }: BioProps) => {
           <a href={social?.email ? `mailto:${social.email}` : ``}>Email</a>
         </S.BioSocialWrapper>
       </S.BioContainer>
-      <GatsbyImage
-        image={img.childImageSharp.gatsbyImageData}
-        alt="profile image"
-        style={{ borderRadius: '16px' }}
-      />
+      {!isMobile && (
+        <GatsbyImage
+          image={img.childImageSharp.gatsbyImageData}
+          alt="profile image"
+          style={{ borderRadius: '16px' }}
+        />
+      )}
     </S.BioWrapper>
   )
 }

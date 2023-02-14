@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { MOBILE_MEDIA_QUERY } from 'styles/theme'
 
 export const PostWrapper = styled.article`
   display: flex;
@@ -19,6 +20,10 @@ export const PostTitle = styled.h1`
   font-weight: 800;
   letter-spacing: -0.25px;
   margin-bottom: 8px;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 28px;
+  }
 `
 
 export const PostDate = styled.p`

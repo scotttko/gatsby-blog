@@ -12,6 +12,7 @@
     "@emotion/styled": "^11.10.5",
     "@fontsource/merriweather": "^4.5.14",
     "@fontsource/montserrat": "^4.5.13",
+    "@types/react-responsive": "^8.0.5",
     "gatsby": "^5.4.2",
     "gatsby-plugin-emotion": "^8.5.0",
     "gatsby-plugin-feed": "^5.4.0",
@@ -30,6 +31,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.7.1",
+    "react-responsive": "^9.0.2",
     "sass": "^1.58.0"
   },
   "devDependencies": {

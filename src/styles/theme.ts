@@ -23,3 +23,6 @@ export const darkTheme = {
     buttonBgHoverColor: '#5D5D5D',
   },
 }
+
+export const MOBILE_MAXWIDTH = `(max-width: 768px)`
+export const MOBILE_MEDIA_QUERY = `screen and ${MOBILE_MAXWIDTH}`

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import { MOBILE_MEDIA_QUERY } from 'styles/theme'
 
 export const PostsWrapper = styled.section`
   display: flex;
@@ -14,6 +15,10 @@ export const Title = styled.h1`
   letter-spacing: -0.25px;
   margin-bottom: 8px;
   padding: 16px;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 36px;
+  }
 `
 
 export const PostList = styled.div`
