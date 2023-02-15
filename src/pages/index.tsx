@@ -7,6 +7,8 @@ import { MarkdownRemark, SiteMetadata } from 'types'
 import Layout from 'layouts'
 import Bio from 'components/bio'
 import RecentPosts from 'components/recent-posts'
+import { motion } from 'framer-motion'
+import { staggerSlowVariants } from 'utils/animations'
 
 interface BlogIndexProps {
   data: {
@@ -22,8 +24,10 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Bio title={siteTitle} />
-      {posts.length > 0 ? <RecentPosts posts={posts} /> : <p>No recent posts</p>}
+      <motion.div variants={staggerSlowVariants} initial="hidden" animate="visible">
+        <Bio title={siteTitle} />
+        {posts.length > 0 ? <RecentPosts posts={posts} /> : <p>No recent posts</p>}
+      </motion.div>
 
       {/* <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {

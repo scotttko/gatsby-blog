@@ -1,7 +1,8 @@
 import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
 import { MOBILE_MEDIA_QUERY } from 'styles/theme'
 
-export const BioWrapper = styled.section`
+export const BioWrapper = styled(motion.section)`
   display: flex;
   /* align-items: center; */
   justify-content: space-between;
@@ -10,12 +11,12 @@ export const BioWrapper = styled.section`
   width: 100%;
 `
 
-export const BioContainer = styled.div`
+export const BioContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
 `
 
-export const BioTitle = styled.h1`
+export const BioTitle = styled(motion.h1)`
   font-size: 48px;
   font-weight: 800;
   letter-spacing: -0.25px;
@@ -27,7 +28,7 @@ export const BioTitle = styled.h1`
   }
 `
 
-export const BioSubtitle = styled.h2`
+export const BioSubtitle = styled(motion.h2)`
   font-size: 32px;
   font-weight: 700;
   letter-spacing: -0.25px;
@@ -39,7 +40,7 @@ export const BioSubtitle = styled.h2`
   }
 `
 
-export const BioContent = styled.p`
+export const BioContent = styled(motion.p)`
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 8px;
@@ -53,7 +54,7 @@ export const BioContent = styled.p`
   }
 `
 
-export const BioSocialWrapper = styled.div`
+export const BioSocialWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
   gap: 8px;

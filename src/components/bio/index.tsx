@@ -9,6 +9,8 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { useMediaQuery } from 'react-responsive'
 import { MOBILE_MAXWIDTH } from 'styles/theme'
+import { fadeInVariants, staggerVariants } from 'utils/animations'
+
 import * as S from './styles'
 
 interface BioProps {
@@ -44,16 +46,16 @@ const Bio = ({ title }: BioProps) => {
   const img = data.image
 
   return (
-    <S.BioWrapper>
-      <S.BioContainer>
-        {title && <S.BioTitle>{title}</S.BioTitle>}
-        <S.BioSubtitle>Frontend Engineer</S.BioSubtitle>
+    <S.BioWrapper variants={fadeInVariants}>
+      <S.BioContainer variants={staggerVariants}>
+        {title && <S.BioTitle variants={fadeInVariants}>{title}</S.BioTitle>}
+        <S.BioSubtitle variants={fadeInVariants}>Frontend Engineer</S.BioSubtitle>
         {author?.name && (
-          <S.BioContent>
+          <S.BioContent variants={fadeInVariants}>
             Written by <strong>{author.name}</strong> {author?.summary || null}
           </S.BioContent>
         )}
-        <S.BioSocialWrapper>
+        <S.BioSocialWrapper variants={fadeInVariants}>
           <a href={social?.github || ``} target="_blank" rel="noreferrer">
             Github
           </a>

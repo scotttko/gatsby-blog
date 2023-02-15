@@ -1,5 +1,6 @@
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { MarkdownRemark } from 'types'
+import { fadeUpVariants } from 'utils/animations'
 import * as S from './styles'
 
 interface RecentPostCardProps {
@@ -9,7 +10,12 @@ const RecentPostCard = ({ post }: RecentPostCardProps) => {
   const title = post.frontmatter.title || post.fields.slug
   const { thumbnail } = post.frontmatter
   return (
-    <S.RecentPostCard to={post.fields.slug}>
+    <S.RecentPostCard
+      to={post.fields.slug}
+      whileHover={{ scale: 1.03, transformOrigin: 'center' }}
+      whileTap={{ scale: 0.98 }}
+      variants={fadeUpVariants}
+    >
       {thumbnail ? (
         <GatsbyImage
           image={thumbnail.childImageSharp.gatsbyImageData}

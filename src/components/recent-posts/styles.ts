@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
 import { Link } from 'gatsby'
 import { MOBILE_MEDIA_QUERY } from 'styles/theme'
 
-export const RecentPostsWrapper = styled.section`
+export const RecentPostsWrapper = styled(motion.section)`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -21,7 +22,7 @@ export const Title = styled.h1`
   }
 `
 
-export const RecentPostContainer = styled.div`
+export const RecentPostContainer = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-gap: 16px;
@@ -33,12 +34,13 @@ export const RecentPostContainer = styled.div`
   }
 `
 
-export const RecentPostCard = styled(Link)`
+export const RecentPostCard = styled(motion(Link))`
   display: flex;
   flex-direction: column;
   width: 100%;
   background-color: ${({ theme }) => theme.palette.buttonBgColor};
   border-radius: 8px;
+  /* cursor: pointer; */
 `
 
 export const CardThumb = styled.div`

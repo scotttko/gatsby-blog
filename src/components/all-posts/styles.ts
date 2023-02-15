@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
 import { Link } from 'gatsby'
 import { MOBILE_MEDIA_QUERY } from 'styles/theme'
 
@@ -27,7 +28,7 @@ export const PostList = styled.div`
   gap: 16px;
   width: 100%;
 `
-export const PostItemContainer = styled(Link)`
+export const PostItemContainer = styled(motion(Link))`
   display: flex;
   flex-direction: column;
   width: 100%;

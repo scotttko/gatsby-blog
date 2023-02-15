@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import { MOBILE_MEDIA_QUERY } from 'styles/theme'
 
 export const PostNavWrapper = styled.nav`
   display: flex;
@@ -21,5 +22,9 @@ export const PostNavLink = styled(Link)<{ dir: 'prev' | 'next' }>`
 
   &:hover {
     background-color: ${({ theme }) => theme.palette.buttonBgHoverColor};
+  }
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 14px;
   }
 `
