@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from 'layouts'
 import Seo from 'components/seo'
 import { SiteMetadata } from 'types'
+import NotFound from 'components/not-found'
 
 interface NotFoundPageProps {
   data: {
@@ -10,13 +11,13 @@ interface NotFoundPageProps {
   }
   location: Location
 }
+
 const NotFoundPage = ({ data, location }: NotFoundPageProps) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
     <Layout location={location} title={siteTitle}>
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <NotFound />
     </Layout>
   )
 }
