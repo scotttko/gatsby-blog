@@ -85,7 +85,7 @@ console.log(foo(5))
 
 Syntax highlighting with file name, highlight line
 
-```ts:cores.ts {2}
+```
 export const cn = (classNames: ...any) => {
     return classNames.filter(Boolean).join(' ');
 }
