@@ -6,6 +6,8 @@ const utteranceExludedPath = ['/', '/posts/', '/about/']
 
 const useTheme = () => {
   const [theme, setTheme] = useState<ThemeType>(() => {
+    if (typeof window === 'undefined') return 'light'
+
     const savedTheme = window.localStorage.getItem('theme') as ThemeType | null
     if (savedTheme !== null) {
       return savedTheme
