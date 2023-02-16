@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { graphql } from 'gatsby'
 import Seo from 'components/seo'
 import Post from 'components/post'
@@ -5,6 +6,7 @@ import PostNav from 'components/post-nav'
 import Layout from 'layouts'
 
 import { MarkdownRemark, SiteMetadata } from 'types'
+import Utterances from 'components/utterances'
 
 interface BlogPostTemplateProps {
   data: {
@@ -20,11 +22,16 @@ const BlogPostTemplate = ({
   location,
 }: BlogPostTemplateProps) => {
   const siteTitle = site.siteMetadata?.title || `Title`
+  const utterancesRepo = site.siteMetadata?.utterances.repo
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Post post={post} />
-      <PostNav prev={previous} next={next} />
+      <>
+        <Post post={post} />
+        {(previous || next) && <PostNav prev={previous} next={next} />}
+
+        {utterancesRepo && <Utterances repo={utterancesRepo} />}
+      </>
     </Layout>
   )
 }
@@ -44,6 +51,9 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        utterances {
+          repo
+        }
       }
     }
     markdownRemark(id: { eq: $id }) {

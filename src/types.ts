@@ -5,6 +5,9 @@ export interface SiteMetadata {
   author: Author
   siteUrl: string
   social: Social
+  utterances: {
+    repo: string
+  }
 }
 
 export interface Author {
@@ -38,3 +41,5 @@ export interface Frontmatter {
 export interface Fields {
   slug: string
 }
+
+export type ThemeType = 'light' | 'dark'

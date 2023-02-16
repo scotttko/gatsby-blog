@@ -251,7 +251,7 @@ $content-image-max-height: 560px;
 .markdown p {
   margin-top: 0;
   margin-bottom: 10px;
-  line-height: 200%;
+  line-height: 1.5
 }
 
 .markdown blockquote {
@@ -1067,6 +1067,7 @@ $content-image-max-height: 560px;
   justify-content: center !important;
   width: 100% !important;
   max-height: $content-image-max-height !important;
+  margin: 0 !important;
 
   img {
     max-width: 100% !important;

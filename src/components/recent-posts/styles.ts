@@ -73,6 +73,11 @@ export const PostLink = styled(Link)`
   width: fit-content;
   display: flex;
   align-items: center;
+  color: ${({ theme }) => theme.palette.subTextColor};
+
+  &:hover {
+    color: ${({ theme }) => theme.palette.mainTextColor};
+  }
 
   @media ${MOBILE_MEDIA_QUERY} {
     font-size: 16px;

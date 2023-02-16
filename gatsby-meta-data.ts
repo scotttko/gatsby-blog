@@ -11,6 +11,9 @@ const metaData = {
     github: `https://github.com/SangWonKo`,
     email: `kosang1017@gmail.com`,
   },
+  utterances: {
+    repo: `SangWonKo/gatsby-blog`,
+  },
 }
 
 export default metaData

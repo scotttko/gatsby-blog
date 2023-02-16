@@ -12,7 +12,7 @@ const RecentPostCard = ({ post }: RecentPostCardProps) => {
   return (
     <S.RecentPostCard
       to={post.fields.slug}
-      whileHover={{ scale: 1.03, transformOrigin: 'center' }}
+      whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
       variants={fadeUpVariants}
     >
