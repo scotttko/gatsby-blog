@@ -1,7 +1,6 @@
 import AllPosts from 'components/all-posts'
 import Seo from 'components/seo'
 import { graphql } from 'gatsby'
-import Layout from 'layouts'
 import { MarkdownRemark, SiteMetadata } from 'types'
 
 interface PostsProps {
@@ -9,18 +8,12 @@ interface PostsProps {
     site: { siteMetadata: SiteMetadata }
     allMarkdownRemark: { nodes: MarkdownRemark[] }
   }
-  location: Location
 }
 
-const Posts = ({ data, location }: PostsProps) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+const Posts = ({ data }: PostsProps) => {
   const posts = data.allMarkdownRemark.nodes
 
-  return (
-    <Layout location={location} title={siteTitle}>
-      <AllPosts posts={posts} />
-    </Layout>
-  )
+  return <AllPosts posts={posts} />
 }
 
 export default Posts
