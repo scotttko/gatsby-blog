@@ -7,9 +7,9 @@ export const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   word-break: keep-all;
-  transition: background-color 0.3s, color 0.3s;
+  /* transition: background-color 0.3s, color 0.3s;
   background-color: ${({ theme }) => theme.palette.bgColor};
-  color: ${({ theme }) => theme.palette.mainTextColor};
+  color: ${({ theme }) => theme.palette.mainTextColor}; */
 `
 
 export const MainContainer = styled.main`
@@ -25,20 +25,6 @@ export const MainContainer = styled.main`
 
 export const FooterLink = styled.a`
   transition: color 0.3s;
-  color: ${({ theme }) => theme.palette.subTextColor};
+  /* color: ${({ theme }) => theme.palette.subTextColor}; */
   margin: 0 4px;
-`
-
-export const ThemeButton = styled.button`
-  display: flex;
-  align-items: center;
-  padding: 8px;
-  background-color: transparent;
-  border-radius: 8px;
-  color: #fbcc13;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.palette.buttonBgColor};
-  }
 `

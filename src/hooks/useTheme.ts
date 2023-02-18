@@ -5,17 +5,13 @@ import { DARK_THEME, LIGHT_THEME } from 'components/utterances'
 const utteranceExludedPath = ['/', '/posts/', '/about/']
 
 const useTheme = () => {
-  const [theme, setTheme] = useState<ThemeType>(() => {
-    if (typeof window === 'undefined') return 'light'
+  const storedTheme =
+    typeof window !== 'undefined' && (window.localStorage.getItem('theme') as ThemeType | null)
+  const systemTheme =
+    typeof window !== 'undefined' &&
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
 
-    const savedTheme = window.localStorage.getItem('theme') as ThemeType | null
-    if (savedTheme !== null) {
-      return savedTheme
-    }
-
-    const { matches } = window.matchMedia('(prefers-color-scheme: dark)')
-    return matches ? 'dark' : 'light'
-  })
+  const [theme, setTheme] = useState<ThemeType>(storedTheme || systemTheme || 'light')
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'))

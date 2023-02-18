@@ -1,13 +1,16 @@
 import { StaticImage } from 'gatsby-plugin-image'
-import { ReactNode } from 'react'
+import { useContext } from 'react'
+import { ThemeContext } from 'styles/ThemeProvider'
+import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs'
+
 import * as S from './styles'
 
 interface HeaderProps {
-  children: ReactNode
   location: Location
 }
-const Header = ({ children, location }: HeaderProps) => {
+const Header = ({ location }: HeaderProps) => {
   const { pathname } = location
+  const { theme, toggleTheme } = useContext(ThemeContext)
 
   return (
     <S.HeaderWrapper>
@@ -30,7 +33,9 @@ const Header = ({ children, location }: HeaderProps) => {
           </S.HeaderLink>
         </S.HeaderMenu>
 
-        {children}
+        <S.ThemeButton onClick={toggleTheme} type="button">
+          {theme === 'light' ? <BsFillSunFill size={24} /> : <BsFillMoonStarsFill size={24} />}
+        </S.ThemeButton>
       </S.HeaderContainer>
     </S.HeaderWrapper>
   )
