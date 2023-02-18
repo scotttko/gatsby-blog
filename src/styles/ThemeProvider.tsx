@@ -11,7 +11,7 @@ interface ThemeContextTypes {
 }
 
 const initialState: ThemeContextTypes = {
-  theme: 'dark',
+  theme: 'light',
   toggleTheme: () => {},
 }
 

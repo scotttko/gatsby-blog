@@ -1,17 +1,21 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { ThemeType } from 'types'
 import { DARK_THEME, LIGHT_THEME } from 'components/utterances'
 
 const utteranceExludedPath = ['/', '/posts/', '/about/']
 
 const useTheme = () => {
-  const storedTheme =
-    typeof window !== 'undefined' && (window.localStorage.getItem('theme') as ThemeType | null)
-  const systemTheme =
-    typeof window !== 'undefined' &&
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+  const [theme, setTheme] = useState<ThemeType>('light')
 
-  const [theme, setTheme] = useState<ThemeType>(storedTheme || systemTheme || 'light')
+  useLayoutEffect(() => {
+    const storedTheme = window.localStorage.getItem('theme') as ThemeType | null
+    if (storedTheme !== null) {
+      setTheme(storedTheme)
+    } else {
+      const systemDarkTheme = window.matchMedia('(prefers-color-scheme: dark)')
+      setTheme(systemDarkTheme.matches ? 'dark' : 'light')
+    }
+  }, [])
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'))
