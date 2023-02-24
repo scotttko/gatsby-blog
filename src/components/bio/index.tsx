@@ -1,48 +1,20 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
- */
-
-import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { useMediaQuery } from 'react-responsive'
 import { MOBILE_MAXWIDTH } from 'styles/theme'
+import { Image, SiteMetadata } from 'types'
 import { fadeInVariants, staggerVariants } from 'utils/animations'
 
 import * as S from './styles'
 
 interface BioProps {
-  title?: string
+  data: {
+    metaData: SiteMetadata
+    image: Image
+  }
 }
-const Bio = ({ title }: BioProps) => {
+const Bio = ({ data }: BioProps) => {
   const isMobile = useMediaQuery({ query: MOBILE_MAXWIDTH })
-  const data = useStaticQuery(graphql`
-    query BioQuery {
-      image: file(absolutePath: { regex: "/profile_image.jpeg/" }) {
-        childImageSharp {
-          gatsbyImageData(layout: FIXED, width: 160, height: 160, placeholder: BLURRED)
-        }
-      }
-      site {
-        siteMetadata {
-          author {
-            name
-            summary
-          }
-          social {
-            github
-            email
-          }
-        }
-      }
-    }
-  `)
-
-  // Set these values by editing "siteMetadata" in gatsby-config.js
-  const author = data.site.siteMetadata?.author
-  const social = data.site.siteMetadata?.social
+  const { title, author, social } = data.metaData
   const img = data.image
 
   return (

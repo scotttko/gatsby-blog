@@ -17,3 +17,7 @@ export const FooterContainer = styled.div`
   max-width: 1152px;
   font-size: 14px;
 `
+
+export const FooterLink = styled.a`
+  margin: 0 4px;
+`

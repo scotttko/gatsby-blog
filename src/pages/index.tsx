@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 import Seo from 'components/seo'
-import { MarkdownRemark, SiteMetadata } from 'types'
+import { Image, MarkdownRemark, SiteMetadata } from 'types'
 import Bio from 'components/bio'
 import RecentPosts from 'components/recent-posts'
 import { motion } from 'framer-motion'
@@ -8,18 +8,20 @@ import { staggerSlowVariants } from 'utils/animations'
 
 interface BlogIndexProps {
   data: {
+    image: Image
     site: { siteMetadata: SiteMetadata }
     allMarkdownRemark: { nodes: MarkdownRemark[] }
   }
 }
 
 const BlogIndex = ({ data }: BlogIndexProps) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const metaData = data.site.siteMetadata
   const posts = data.allMarkdownRemark.nodes
+  const img = data.image
 
   return (
     <motion.div variants={staggerSlowVariants} initial="hidden" animate="visible">
-      <Bio title={siteTitle} />
+      <Bio data={{ metaData, image: img }} />
       {posts.length > 0 ? <RecentPosts posts={posts} /> : <p>No recent posts</p>}
     </motion.div>
   )
@@ -27,18 +29,26 @@ const BlogIndex = ({ data }: BlogIndexProps) => {
 
 export default BlogIndex
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
 export const Head = () => <Seo title="Home" />
 
 export const pageQuery = graphql`
   {
+    image: file(absolutePath: { regex: "/profile_image.jpeg/" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FIXED, width: 160, height: 160, placeholder: BLURRED)
+      }
+    }
     site {
       siteMetadata {
         title
+        author {
+          name
+          summary
+        }
+        social {
+          github
+          email
+        }
       }
     }
     allMarkdownRemark(

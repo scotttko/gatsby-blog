@@ -1,12 +1,17 @@
-import { ReactNode } from 'react'
 import * as S from './styles'
 
-interface FooterProps {
-  children: ReactNode
-}
-const Footer = ({ children }: FooterProps) => (
+const Footer = () => (
   <S.FooterWrapper>
-    <S.FooterContainer>{children}</S.FooterContainer>
+    <S.FooterContainer>
+      © {new Date().getFullYear()}
+      <S.FooterLink href="https://github.com/SangWonKo" target="_blank">
+        scottko
+      </S.FooterLink>
+      Built with
+      <S.FooterLink href="https://www.gatsbyjs.com/" target="_blank">
+        Gatsby
+      </S.FooterLink>
+    </S.FooterContainer>
   </S.FooterWrapper>
 )
 

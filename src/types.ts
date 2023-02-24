@@ -17,6 +17,14 @@ export interface Author {
 
 export interface Social {
   twitter: string
+  github: string
+  email: string
+}
+
+export interface Image {
+  childImageSharp: {
+    gatsbyImageData: IGatsbyImageData
+  }
 }
 
 export interface MarkdownRemark extends Node {
@@ -31,11 +39,7 @@ export interface Frontmatter {
   title: string
   description: string
   date: string
-  thumbnail: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData
-    }
-  }
+  thumbnail: Image
 }
 
 export interface Fields {

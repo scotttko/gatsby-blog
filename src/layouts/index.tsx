@@ -14,16 +14,7 @@ const Layout = ({ location, children }: LayoutProps) => (
     <Header location={location} />
 
     <S.MainContainer>{children}</S.MainContainer>
-    <Footer>
-      © {new Date().getFullYear()}
-      <S.FooterLink href="https://github.com/SangWonKo" target="_blank">
-        scottko
-      </S.FooterLink>
-      Built with
-      <S.FooterLink href="https://www.gatsbyjs.com/" target="_blank">
-        Gatsby
-      </S.FooterLink>
-    </Footer>
+    <Footer />
   </S.Wrapper>
 )
 
