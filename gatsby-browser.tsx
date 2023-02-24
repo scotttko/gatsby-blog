@@ -6,9 +6,10 @@
 // import './src/styles/reset.css'
 import './src/styles/style.scss'
 // Highlighting for code blocks
+import 'prismjs/themes/prism-tomorrow.css'
+
 import { GatsbyBrowser } from 'gatsby'
 import Layout from 'layouts'
-import 'prismjs/themes/prism.css'
 import ThemeProvider from 'styles/ThemeProvider'
 
 export const wrapRootElement: GatsbyBrowser['wrapRootElement'] = ({ element }) => (

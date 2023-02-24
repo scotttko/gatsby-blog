@@ -18,17 +18,19 @@ const style = (theme: Theme) => css`
     overflow-y: scroll;
     font-size: 14px;
     color: ${theme.palette.mainTextColor};
-    /* transition: background-color 0.3s, color 0.3s; */
     background-color: ${theme.palette.bgColor};
 
     header {
-      /* transition: background-color 0.3s; */
       background-color: ${theme.palette.bgColor};
     }
 
     footer {
-      /* transition: background-color 0.3s; */
       background-color: ${theme.palette.buttonBgColor};
+
+      a {
+        color: ${theme.palette.subTextColor};
+        text-decoration: none;
+      }
     }
 
     a {
@@ -75,7 +77,6 @@ const style = (theme: Theme) => css`
     }
 
     footer {
-      transition: background-color 0.3s;
       background-color: ${darkTheme.palette.buttonBgColor};
     }
 
