@@ -52,7 +52,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { title: { ne: "resume" } } }
+      filter: { frontmatter: { categories: { ne: null } } }
       sort: { frontmatter: { date: DESC } }
       limit: 4
     ) {

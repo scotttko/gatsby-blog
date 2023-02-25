@@ -7,6 +7,7 @@ interface PostItemProps {
 }
 const PostItem = ({ post }: PostItemProps) => {
   const title = post.frontmatter.title || post.fields.slug
+  const categories = post.frontmatter.categories.split(' ')
 
   return (
     <S.PostItemContainer
@@ -19,7 +20,12 @@ const PostItem = ({ post }: PostItemProps) => {
     >
       <S.PostItemTitle>{title}</S.PostItemTitle>
       <S.PostItemDesc>{post.frontmatter.description || post.excerpt}</S.PostItemDesc>
-      <S.PostItemDate>{post.frontmatter.date}</S.PostItemDate>
+      <S.PostItemInfo>
+        {categories.map((category) => (
+          <S.PostItemCategory key={category}>{category}</S.PostItemCategory>
+        ))}
+        <S.PostItemDate>{post.frontmatter.date}</S.PostItemDate>
+      </S.PostItemInfo>
     </S.PostItemContainer>
   )
 }

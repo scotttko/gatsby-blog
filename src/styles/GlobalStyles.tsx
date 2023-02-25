@@ -114,6 +114,10 @@ const style = (theme: Theme) => css`
       color: ${darkTheme.palette.buttonBgHoverColor} !important;
     }
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 const GlobalStyles = () => <Global styles={(theme) => style(theme)} />
