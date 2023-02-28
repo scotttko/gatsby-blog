@@ -57,14 +57,12 @@ export const pageQuery = graphql`
       limit: 4
     ) {
       nodes {
-        excerpt(pruneLength: 200, truncate: true)
         fields {
           slug
         }
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
-          description
           thumbnail {
             childImageSharp {
               gatsbyImageData(height: 160, placeholder: BLURRED)

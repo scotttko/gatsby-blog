@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 import { MOBILE_MEDIA_QUERY } from 'styles/theme'
 
-export const BioWrapper = styled(motion.section)`
+export const BioWrapper = styled.section`
   display: flex;
   /* align-items: center; */
   justify-content: space-between;
