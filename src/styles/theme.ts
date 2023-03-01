@@ -17,7 +17,7 @@ export const darkTheme = {
     subBgColor: '#222222',
 
     mainTextColor: '#ffffff',
-    subTextColor: '#A4A4A4',
+    subTextColor: '#ACACAC',
 
     buttonBgColor: '#303033',
     buttonBgHoverColor: '#5D5D5D',
