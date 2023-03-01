@@ -18,10 +18,10 @@ const Bio = ({ data }: BioProps) => {
   const img = data.image
 
   return (
-    <S.BioWrapper variants={fadeInVariants}>
+    <S.BioWrapper>
       <S.BioContainer variants={staggerVariants}>
         {title && <S.BioTitle variants={fadeInVariants}>{title}</S.BioTitle>}
-        <S.BioSubtitle variants={fadeInVariants}>Frontend Engineer</S.BioSubtitle>
+        <S.BioSubtitle variants={fadeInVariants}>Front-End Engineer</S.BioSubtitle>
         {author?.name && (
           <S.BioContent variants={fadeInVariants}>
             Written by <strong>{author.name}</strong> {author?.summary || null}

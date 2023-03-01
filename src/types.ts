@@ -40,6 +40,7 @@ export interface Frontmatter {
   description: string
   date: string
   thumbnail: Image
+  categories: string
 }
 
 export interface Fields {

@@ -52,19 +52,17 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { title: { ne: "resume" } } }
+      filter: { frontmatter: { categories: { ne: null } } }
       sort: { frontmatter: { date: DESC } }
       limit: 4
     ) {
       nodes {
-        excerpt(pruneLength: 200, truncate: true)
         fields {
           slug
         }
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
-          description
           thumbnail {
             childImageSharp {
               gatsbyImageData(height: 160, placeholder: BLURRED)
