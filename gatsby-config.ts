@@ -14,6 +14,7 @@ const config: GatsbyConfig = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
