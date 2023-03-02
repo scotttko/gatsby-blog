@@ -11,9 +11,10 @@ import { useStaticQuery, graphql } from 'gatsby'
 interface SeoProps {
   description?: string
   title: string
+  image?: string
   children?: React.ReactNode
 }
-const Seo = ({ description, title, children }: SeoProps) => {
+const Seo = ({ description, title, image, children }: SeoProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -21,9 +22,8 @@ const Seo = ({ description, title, children }: SeoProps) => {
           siteMetadata {
             title
             description
-            social {
-              twitter
-            }
+            siteUrl
+            ogImage
           }
         }
       }
@@ -32,6 +32,7 @@ const Seo = ({ description, title, children }: SeoProps) => {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
+  const { siteUrl, ogImage } = site.siteMetadata
 
   return (
     <>
@@ -39,11 +40,10 @@ const Seo = ({ description, title, children }: SeoProps) => {
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={metaDescription} />
+      <meta property="og:url" content={siteUrl} />
+      <meta property="og:image" content={image ? `${siteUrl}${image}` : ogImage} />
+      <meta property="og:site_name" content={defaultTitle} />
       <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:creator" content={site.siteMetadata?.social?.twitter || ``} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={metaDescription} />
       {children}
     </>
   )

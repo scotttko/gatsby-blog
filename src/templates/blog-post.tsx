@@ -35,9 +35,11 @@ export const Head = ({
   data: { markdownRemark: post },
 }: {
   data: { markdownRemark: MarkdownRemark }
-}) => (
-  <Seo title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
-)
+}) => {
+  const { title, description, thumbnail } = post.frontmatter
+  const thumbnailSrc = thumbnail.childImageSharp.gatsbyImageData.images.fallback?.src
+  return <Seo title={title} description={description || post.excerpt} image={thumbnailSrc} />
+}
 
 export default BlogPostTemplate
 
@@ -59,6 +61,11 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        thumbnail {
+          childImageSharp {
+            gatsbyImageData(height: 630)
+          }
+        }
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

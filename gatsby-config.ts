@@ -14,6 +14,7 @@ const config: GatsbyConfig = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -71,6 +72,19 @@ const config: GatsbyConfig = {
         // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/my_favicon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://scottko.netlify.app',
+        stripQueryString: true,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
   ],

@@ -230,6 +230,7 @@ export const fadeInVariants: Variants = {
 - image optimization w/ `gatsby-plugin-image`
 
 <br />
+<hr />
 
 ## Todo
 
@@ -240,6 +241,7 @@ export const fadeInVariants: Variants = {
 - PWA 지원
 
 <br />
+<hr />
 
 ## 마치며
 

@@ -4,6 +4,7 @@ export interface SiteMetadata {
   title: string
   author: Author
   siteUrl: string
+  ogImage: string
   social: Social
   utterances: {
     repo: string
@@ -16,7 +17,6 @@ export interface Author {
 }
 
 export interface Social {
-  twitter: string
   github: string
   email: string
 }
