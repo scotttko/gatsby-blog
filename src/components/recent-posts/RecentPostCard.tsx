@@ -9,6 +9,7 @@ interface RecentPostCardProps {
 const RecentPostCard = ({ post }: RecentPostCardProps) => {
   const title = post.frontmatter.title || post.fields.slug
   const { thumbnail } = post.frontmatter
+
   return (
     <S.RecentPostCard
       to={post.fields.slug}
