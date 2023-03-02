@@ -73,6 +73,13 @@ const config: GatsbyConfig = {
         icon: `src/images/my_favicon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://scottko.netlify.app',
+        stripQueryString: true,
+      },
+    },
   ],
 }
 

@@ -15,6 +15,7 @@
     "@types/react-responsive": "^8.0.5",
     "framer-motion": "^9.0.2",
     "gatsby": "^5.4.2",
+    "gatsby-plugin-canonical-urls": "^5.7.0",
     "gatsby-plugin-emotion": "^8.5.0",
     "gatsby-plugin-feed": "^5.4.0",
     "gatsby-plugin-image": "^3.4.0",
