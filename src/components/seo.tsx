@@ -44,6 +44,8 @@ const Seo = ({ description, title, image, children }: SeoProps) => {
       <meta property="og:image" content={image ? `${siteUrl}${image}` : ogImage} />
       <meta property="og:site_name" content={defaultTitle} />
       <meta property="og:type" content="website" />
+
+      <meta name="google-site-verification" content="AJ6jBaXPCGTb8rxfZRBcrLBXOZNicPSC5gY1JxZ-d8Y" />
       {children}
     </>
   )
