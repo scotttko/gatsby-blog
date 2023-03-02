@@ -141,7 +141,7 @@ React 기반의 Static Site Generator인 Gatsby를 활용하여 만든 개발 �
 ### TypeScript
 
 - TypeScript의 정적 타입 시스템을 사용한 프론트엔드 개발을 선호합니다.
-- Generic, Utilit Type 등의 다양한 문법에 익숙합니다.
+- Generic, Utility Type 등의 다양한 문법에 익숙합니다.
 
 ### React / Next.js
 
