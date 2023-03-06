@@ -63,13 +63,13 @@ Gatsby가 제공하는 다양한 plugin의 이점을 채택하여 가장 빠르�
 다크모드 기능은 어떻게 보면 부수적인 기능일 수 있겠지만 블로그를 직접 구현하기로 결정한 순간부터 추가하고 싶었던 기능이였고 그만큼 많은 신경을 써서 구현하였습니다.
 처음에 다크모드들 구상하면서는 현재 사용 중인 css 라이브러리인 **emotion**의 도움을 받아 `ThemeProvider`의 theme을 스위치하는 정도로 가볍게 생각했습니다. 하지만 실제로 구현해보면서 예상치 못한 이슈를 발견하게 되어 구현하는데 시간이 생각보다 많이 소요되었습니다.
 
-### 적절한 컬러 조합
+#### 적절한 컬러 조합
 
 [Materia Design](https://m2.material.io/design/color/dark-theme.html)의 가이드를 참고하면서 적절한 다크 모드에 대한 컬러 palette를 정해보았으나 컬러 조합은 아직 조정 중이며 더 나은 조합을 찾게 되면 수정해볼 생각입니다.
 
 <br />
 
-### theme 설정 유지하기
+#### theme 설정 유지하기
 
 ```typescript
 const useTheme = () => {
@@ -95,7 +95,7 @@ const useTheme = () => {
 
 <br />
 
-### FoUC (Flash of Unstyled Contents) 이슈
+#### FoUC (Flash of Unstyled Contents) 이슈
 
 Gatsby는 build time에 HTML 파일을 생성하며 js가 로드된 이후에 hydration이 일어나는 과정을 통해 렌더링됩니다. 그리고 빌드 타임에는 js가 로드되지 않아 `localStorage`에 접근하지 못하기 때문에 저장된 테마를 불러오지 못하게 되어 `useTheme`에 default로 설정된 light theme이 초기 테마로 적용됩니다. 이로 인해 다크 테마로 저장되어 있는 경우 `localStorage`에서 테마를 가져오기 전까지는 light theme이 노출되면서 일시적인 깜빡임 현상이 발생하게 됩니다.
 
@@ -161,7 +161,7 @@ useEffect(() => {
 
 <br />
 
-### utterances 다크모드 지원
+#### utterances 다크모드 지원
 
 [utterances](https://utteranc.es/)는 post들의 커멘트 기능을 위해 사용 중인데, utterances도 컬러 모드를 선택하여 테마를 적용시킬 수 있도록 지원하고 있습니다. 하지만 컬러 모드가 변경될 경우엔 `iframe` 형태의 커멘트 ui에 스위칭된 테마가 업데이트되지 않아 초기에 설정된 테마로 유지되는 것이 어색하게 느껴졌습니다. 그래서 이를 해결하기 위해 알아보던 중 utterances의 theme을 동적으로 변경하는 방법을 파악하게 되어 아래와 같이 utterances iframe에 `postMessage` 메소드로 theme을 전달하여 utterances의 ui도 함께 컬러 모드가 변경되도록 하였습니다.
 
