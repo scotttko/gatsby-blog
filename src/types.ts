@@ -33,6 +33,7 @@ export interface MarkdownRemark extends Node {
   fields: Fields
   excerpt: string
   html: string
+  tableOfContents: string
 }
 
 export interface Frontmatter {

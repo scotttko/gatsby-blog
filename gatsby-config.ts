@@ -55,6 +55,12 @@ const config: GatsbyConfig = {
             },
           },
           `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              elements: [`h1`, `h2`, `h3`],
+            },
+          },
         ],
       },
     },

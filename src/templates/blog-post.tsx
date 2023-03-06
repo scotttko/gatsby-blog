@@ -67,6 +67,7 @@ export const pageQuery = graphql`
           }
         }
       }
+      tableOfContents(maxDepth: 3)
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
       fields {

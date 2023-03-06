@@ -33,3 +33,18 @@ export const PostDate = styled.p`
   margin-bottom: 16px;
   color: ${({ theme }) => theme.palette.subTextColor};
 `
+
+export const PostContainer = styled.section`
+  display: flex;
+  width: 100%;
+  gap: 32px;
+`
+
+export const PostContent = styled.section`
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    max-width: 768px;
+    min-width: 360px;
+  }
+`
