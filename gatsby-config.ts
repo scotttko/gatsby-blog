@@ -74,19 +74,12 @@ const config: GatsbyConfig = {
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#0a87ef`,
-        display: `minimal-ui`,
+        display: 'standalone',
         icon: `src/images/my_favicon.png`,
-        cache_busting_mode: 'none',
+        include_favicon: false,
       },
     },
-    {
-      resolve: 'gatsby-plugin-offline',
-      options: {
-        workboxConfig: {
-          globPatterns: ['**/icon-path*'],
-        },
-      },
-    },
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
