@@ -80,14 +80,6 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        workboxConfig: {
-          globPatterns: [`**/*`],
-        },
-      },
-    },
-    {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: 'https://scottko.netlify.app',
