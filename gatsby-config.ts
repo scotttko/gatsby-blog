@@ -83,7 +83,7 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-offline`,
       options: {
         workboxConfig: {
-          globPatterns: [`**/images/*`],
+          globPatterns: [`**/*`],
         },
       },
     },
