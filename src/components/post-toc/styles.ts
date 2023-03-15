@@ -38,6 +38,5 @@ export const TocContainer = styled.div`
     display: block;
     transition: all 0.05s ease-in;
     transform: scale(1.05);
-    will-change: transform;
   }
 `
