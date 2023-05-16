@@ -8,11 +8,11 @@ const metaData = {
   siteUrl: `https://scottko.netlify.app`,
   ogImage: `https://i.ibb.co/16nfTMd/blog-og-Image.png`,
   social: {
-    github: `https://github.com/SangWonKo`,
+    github: `https://github.com/scotttko`,
     email: `kosang1017@gmail.com`,
   },
   utterances: {
-    repo: `SangWonKo/gatsby-blog`,
+    repo: `scotttko/gatsby-blog`,
   },
 }
 

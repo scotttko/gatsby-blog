@@ -110,13 +110,13 @@ Right aligned columns
 
 ## Links
 
-[link text](https://github.com/SangWonKo)
+[link text](https://github.com/scotttko)
 
-[**bold link text**](https://github.com/SangWonKo)
+[**bold link text**](https://github.com/scotttko)
 
-[`code link text`](https://github.com/SangWonKo)
+[`code link text`](https://github.com/scotttko)
 
-Autoconverted link https://github.com/SangWonKo
+Autoconverted link https://github.com/scotttko
 
 ## Images
 

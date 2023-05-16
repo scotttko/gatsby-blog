@@ -4,7 +4,7 @@ const Footer = () => (
   <S.FooterWrapper>
     <S.FooterContainer>
       © {new Date().getFullYear()}
-      <S.FooterLink href="https://github.com/SangWonKo" target="_blank">
+      <S.FooterLink href="https://github.com/scotttko" target="_blank">
         scottko
       </S.FooterLink>
       Built with

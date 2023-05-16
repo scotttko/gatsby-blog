@@ -17,7 +17,7 @@ _<div align="right"><sub><i>Last updated: 2023.02.13</i></sub></div>_
 
 |             |                                |
 | :---------: | ------------------------------ |
-| **GitHub**  | <https://github.com/SangWonKo> |
+| **GitHub**  | <https://github.com/scotttko> |
 | **Contact** | <kosang1017@gmail.com>         |
 
 <br />
@@ -73,7 +73,7 @@ _<div align="right"><sub><i>Last updated: 2023.02.13</i></sub></div>_
 
 `React` `Gatsby` `TypeScript` `Emotion`
 
-React 기반의 Static Site Generator인 Gatsby를 활용하여 만든 개발 블로그입니다<br />기존에 운영 중인 다양한 테마의 기술 블로그들을 참고하여 블로그 UI를 구현하였으며 블로그 글 포스팅은 gatsby의 내장 plugin을 사용하여 마크다운 파일을 파싱하였습니다. 부수적인 기능으로 다크모드, utterances 커멘트 기능, framer-motion 애니메이션 등을 추가하였으며 앞으로 TOC(Table of Contents), 카테고리, 검색 등의 기능을 추가할 예정입니다. 소스 코드는 https://github.com/SangWonKo/gatsby-blog 에 공개되어 있습니다.
+React 기반의 Static Site Generator인 Gatsby를 활용하여 만든 개발 블로그입니다<br />기존에 운영 중인 다양한 테마의 기술 블로그들을 참고하여 블로그 UI를 구현하였으며 블로그 글 포스팅은 gatsby의 내장 plugin을 사용하여 마크다운 파일을 파싱하였습니다. 부수적인 기능으로 다크모드, utterances 커멘트 기능, framer-motion 애니메이션 등을 추가하였으며 앞으로 TOC(Table of Contents), 카테고리, 검색 등의 기능을 추가할 예정입니다. 소스 코드는 https://github.com/scotttko/gatsby-blog 에 공개되어 있습니다.
 
 <br />
 
