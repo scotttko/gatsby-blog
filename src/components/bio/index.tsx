@@ -1,21 +1,20 @@
-import { GatsbyImage } from 'gatsby-plugin-image'
-import { useMediaQuery } from 'react-responsive'
-import { MOBILE_MAXWIDTH } from 'styles/theme'
-import { Image, SiteMetadata } from 'types'
-import { fadeInVariants, staggerVariants } from 'utils/animations'
+import { GatsbyImage } from 'gatsby-plugin-image';
+// import { useMediaQuery } from 'react-responsive';
+// import { MOBILE_MAXWIDTH } from 'styles/theme';
+import { Image, SiteMetadata } from 'types';
+import { fadeInVariants, staggerVariants } from 'utils/animations';
 
-import * as S from './styles'
+import * as S from './styles';
 
 interface BioProps {
   data: {
-    metaData: SiteMetadata
-    image: Image
-  }
+    metaData: SiteMetadata;
+    image: Image;
+  };
 }
 const Bio = ({ data }: BioProps) => {
-  const isMobile = useMediaQuery({ query: MOBILE_MAXWIDTH })
-  const { title, author, social } = data.metaData
-  const img = data.image
+  const { title, author, social } = data.metaData;
+  const img = data.image;
 
   return (
     <S.BioWrapper>
@@ -34,15 +33,14 @@ const Bio = ({ data }: BioProps) => {
           <a href={social?.email ? `mailto:${social.email}` : ``}>Email</a>
         </S.BioSocialWrapper>
       </S.BioContainer>
-      {!isMobile && (
-        <GatsbyImage
-          image={img.childImageSharp.gatsbyImageData}
-          alt="profile image"
-          style={{ borderRadius: '16px' }}
-        />
-      )}
-    </S.BioWrapper>
-  )
-}
 
-export default Bio
+      <GatsbyImage
+        image={img.childImageSharp.gatsbyImageData}
+        alt="profile image"
+        style={{ borderRadius: '16px' }}
+      />
+    </S.BioWrapper>
+  );
+};
+
+export default Bio;
