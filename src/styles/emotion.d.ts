@@ -1,7 +1,8 @@
 import '@emotion/react'
+import { ITheme } from './theme'
 
 declare module '@emotion/react' {
-  export interface Theme {
+  export interface Theme extends ITheme {
     palette: {
       bgColor: string
       subBgColor: string

@@ -1,16 +1,16 @@
-import { StaticImage } from 'gatsby-plugin-image'
-import { useContext } from 'react'
-import { ThemeContext } from 'styles/ThemeProvider'
-import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs'
+import { StaticImage } from 'gatsby-plugin-image';
+import { useContext } from 'react';
+import { ThemeContext } from 'styles/ThemeProvider';
+import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs';
 
-import * as S from './styles'
+import * as S from './styles';
 
 interface HeaderProps {
-  location: Location
+  location: Location;
 }
 const Header = ({ location }: HeaderProps) => {
-  const { pathname } = location
-  const { theme, toggleTheme } = useContext(ThemeContext)
+  const { pathname } = location;
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <S.HeaderWrapper>
@@ -33,12 +33,14 @@ const Header = ({ location }: HeaderProps) => {
           </S.HeaderLink>
         </S.HeaderMenu>
 
-        <S.ThemeButton onClick={toggleTheme} type="button">
-          {theme === 'light' ? <BsFillSunFill size={24} /> : <BsFillMoonStarsFill size={24} />}
-        </S.ThemeButton>
+        {theme && (
+          <S.ThemeButton onClick={toggleTheme} type="button">
+            {theme === 'light' ? <BsFillSunFill size={24} /> : <BsFillMoonStarsFill size={24} />}
+          </S.ThemeButton>
+        )}
       </S.HeaderContainer>
     </S.HeaderWrapper>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

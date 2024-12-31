@@ -1,35 +1,35 @@
-import { graphql } from 'gatsby'
-import Seo from 'components/seo'
-import { Image, MarkdownRemark, SiteMetadata } from 'types'
-import Bio from 'components/bio'
-import RecentPosts from 'components/recent-posts'
-import { motion } from 'framer-motion'
-import { staggerSlowVariants } from 'utils/animations'
+import { graphql } from 'gatsby';
+import Seo from 'components/seo';
+import { Image, MarkdownRemark, SiteMetadata } from 'types';
+import Bio from 'components/bio';
+import RecentPosts from 'components/recent-posts';
+import { motion } from 'framer-motion';
+import { staggerSlowVariants } from 'utils/animations';
 
 interface BlogIndexProps {
   data: {
-    image: Image
-    site: { siteMetadata: SiteMetadata }
-    allMarkdownRemark: { nodes: MarkdownRemark[] }
-  }
+    image: Image;
+    site: { siteMetadata: SiteMetadata };
+    allMarkdownRemark: { nodes: MarkdownRemark[] };
+  };
 }
 
 const BlogIndex = ({ data }: BlogIndexProps) => {
-  const metaData = data.site.siteMetadata
-  const posts = data.allMarkdownRemark.nodes
-  const img = data.image
+  const metaData = data.site.siteMetadata;
+  const posts = data.allMarkdownRemark.nodes;
+  const img = data.image;
 
   return (
     <motion.div variants={staggerSlowVariants} initial="hidden" animate="visible">
       <Bio data={{ metaData, image: img }} />
       {posts.length > 0 ? <RecentPosts posts={posts} /> : <p>No recent posts</p>}
     </motion.div>
-  )
-}
+  );
+};
 
-export default BlogIndex
+export default BlogIndex;
 
-export const Head = () => <Seo title="Home" />
+export const Head = () => <Seo title="Home" />;
 
 export const pageQuery = graphql`
   {
@@ -72,4 +72,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

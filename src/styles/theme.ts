@@ -24,5 +24,20 @@ export const darkTheme = {
   },
 }
 
+export const defaultTheme = {
+  palette: {
+    bgColor: 'var(--color-bg)',
+    subBgColor: 'var(--color-sub-bg)',
+
+    mainTextColor: 'var(--color-main-text)',
+    subTextColor: 'var(--color-sub-text)',
+
+    buttonBgColor: 'var(--color-button-bg)',
+    buttonBgHoverColor: 'var(--color-button-bg-hover)',
+  },
+}
+
+export type ITheme = typeof defaultTheme
+
 export const MOBILE_MAXWIDTH = `(max-width: 768px)`
 export const MOBILE_MEDIA_QUERY = `screen and ${MOBILE_MAXWIDTH}`

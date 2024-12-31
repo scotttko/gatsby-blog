@@ -4,11 +4,14 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
 
-import { GatsbyConfig } from 'gatsby'
-import metaData from './gatsby-meta-data'
+import { GatsbyConfig } from 'gatsby';
+import metaData from './gatsby-meta-data';
 
 const config: GatsbyConfig = {
   siteMetadata: metaData,
+  flags: {
+    DEV_SSR: true,
+  },
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-emotion`,
@@ -93,6 +96,6 @@ const config: GatsbyConfig = {
       },
     },
   ],
-}
+};
 
-export default config
+export default config;

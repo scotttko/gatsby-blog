@@ -1,49 +1,49 @@
-import { useEffect, useLayoutEffect, useState } from 'react'
-import { ThemeType } from 'types'
-import { DARK_THEME, LIGHT_THEME } from 'components/utterances'
+import { useCallback, useEffect, useState } from 'react';
+import { ThemeType } from 'types';
+import { DARK_THEME, LIGHT_THEME } from 'components/utterances';
 
-const utteranceExludedPath = ['/', '/posts/', '/about/']
+const utteranceExludedPath = ['/', '/posts/', '/about/'];
 
 const useTheme = () => {
-  const [theme, setTheme] = useState<ThemeType>('light')
-
-  useLayoutEffect(() => {
-    const storedTheme = window.localStorage.getItem('theme') as ThemeType | null
-    if (storedTheme !== null) {
-      setTheme(storedTheme)
-    } else {
-      const systemDarkTheme = window.matchMedia('(prefers-color-scheme: dark)')
-      setTheme(systemDarkTheme.matches ? 'dark' : 'light')
-    }
-  }, [])
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'))
-  }
+  const [theme, setTheme] = useState<ThemeType | null>(null);
 
   useEffect(() => {
-    window.localStorage.setItem('theme', theme)
-  }, [theme])
+    const storedTheme = window.localStorage.getItem('theme') as ThemeType | null;
+    const isSystemDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = storedTheme || (isSystemDarkMode ? 'dark' : 'light');
+
+    setTheme(initialTheme);
+    document.documentElement.setAttribute('data-theme', initialTheme);
+    document.documentElement.dataset.theme = initialTheme;
+  }, []);
+
+  const toggleTheme = useCallback(() => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+
+    setTheme(newTheme);
+    document.documentElement.dataset.theme = newTheme;
+    window.localStorage.setItem('theme', newTheme);
+  }, [theme]);
 
   useEffect(() => {
-    const { pathname } = document.location
-    if (utteranceExludedPath.includes(pathname)) return
+    const { pathname } = document.location;
+    if (utteranceExludedPath.includes(pathname)) return;
 
     const message = {
       type: 'set-theme',
       theme: theme === 'light' ? LIGHT_THEME : DARK_THEME,
-    }
+    };
 
-    const iframe = document.querySelector<HTMLIFrameElement>('.utterances-frame')
+    const iframe = document.querySelector<HTMLIFrameElement>('.utterances-frame');
 
-    const value = localStorage.getItem('theme') as ThemeType
+    const value = localStorage.getItem('theme') as ThemeType;
 
     if (iframe && value) {
-      iframe.contentWindow?.postMessage(message, 'https://utteranc.es')
+      iframe.contentWindow?.postMessage(message, 'https://utteranc.es');
     }
-  }, [theme])
+  }, [theme]);
 
-  return { theme, toggleTheme }
-}
+  return { theme, toggleTheme };
+};
 
-export default useTheme
+export default useTheme;

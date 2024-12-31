@@ -1,13 +1,13 @@
-import { MarkdownRemark } from 'types'
-import { fadeUpVariants } from 'utils/animations'
-import * as S from './styles'
+import { MarkdownRemark } from 'types';
+import { fadeUpVariants } from 'utils/animations';
+import * as S from './styles';
 
 interface PostItemProps {
-  post: MarkdownRemark
+  post: MarkdownRemark;
 }
 const PostItem = ({ post }: PostItemProps) => {
-  const title = post.frontmatter.title || post.fields.slug
-  const categories = post.frontmatter.categories.split(' ')
+  const title = post.frontmatter.title || post.fields.slug;
+  const categories = post.frontmatter.categories.split(' ');
 
   return (
     <S.PostItemContainer
@@ -27,7 +27,7 @@ const PostItem = ({ post }: PostItemProps) => {
         <S.PostItemDate>{post.frontmatter.date}</S.PostItemDate>
       </S.PostItemInfo>
     </S.PostItemContainer>
-  )
-}
+  );
+};
 
-export default PostItem
+export default PostItem;

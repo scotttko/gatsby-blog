@@ -1,24 +1,24 @@
-import About from 'components/about'
-import Seo from 'components/seo'
-import { graphql } from 'gatsby'
-import { MarkdownRemark, SiteMetadata } from 'types'
+import About from 'components/about';
+import Seo from 'components/seo';
+import { graphql } from 'gatsby';
+import { MarkdownRemark, SiteMetadata } from 'types';
 
 interface AboutPageProps {
   data: {
-    site: { siteMetadata: SiteMetadata }
-    allMarkdownRemark: { nodes: MarkdownRemark[] }
-  }
+    site: { siteMetadata: SiteMetadata };
+    allMarkdownRemark: { nodes: MarkdownRemark[] };
+  };
 }
 
 const AboutPage = ({ data }: AboutPageProps) => {
-  const resume = data.allMarkdownRemark.nodes[0].html
+  const resume = data.allMarkdownRemark.nodes[0].html;
 
-  return <About resume={resume} />
-}
+  return <About resume={resume} />;
+};
 
-export default AboutPage
+export default AboutPage;
 
-export const Head = () => <Seo title="About" />
+export const Head = () => <Seo title="About" />;
 
 export const pageQuery = graphql`
   {
@@ -41,4 +41,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

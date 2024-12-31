@@ -1,39 +1,35 @@
-import useTheme from 'hooks/useTheme'
-import { ThemeProvider as EmotionThemeProvider } from '@emotion/react'
-import { createContext, ReactNode, useEffect, useMemo } from 'react'
-import { ThemeType } from 'types'
-import { darkTheme, lightTheme } from './theme'
-import GlobalStyles from './GlobalStyles'
+import useTheme from 'hooks/useTheme';
+import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
+import { createContext, ReactNode, useMemo } from 'react';
+import { ThemeType } from 'types';
+import { defaultTheme } from './theme';
+import GlobalStyles from './GlobalStyles';
 
 interface ThemeContextTypes {
-  theme: ThemeType
-  toggleTheme: () => void
+  theme: ThemeType | null;
+  toggleTheme: () => void;
 }
 
 const initialState: ThemeContextTypes = {
-  theme: 'light',
+  theme: null,
   toggleTheme: () => {},
-}
+};
 
-export const ThemeContext = createContext(initialState)
+export const ThemeContext = createContext(initialState);
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, toggleTheme } = useTheme();
 
-  const themeContextValue = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme])
-
-  useEffect(() => {
-    document.body.classList.remove('dark')
-  }, [])
+  const themeContextValue = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
 
   return (
     <ThemeContext.Provider value={themeContextValue}>
-      <EmotionThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+      <EmotionThemeProvider theme={defaultTheme}>
         <GlobalStyles />
         {children}
       </EmotionThemeProvider>
     </ThemeContext.Provider>
-  )
-}
+  );
+};
 
-export default ThemeProvider
+export default ThemeProvider;
