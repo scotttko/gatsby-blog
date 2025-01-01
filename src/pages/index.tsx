@@ -3,8 +3,6 @@ import Seo from 'components/seo';
 import { Image, MarkdownRemark, SiteMetadata } from 'types';
 import Bio from 'components/bio';
 import RecentPosts from 'components/recent-posts';
-import { motion } from 'framer-motion';
-import { staggerSlowVariants } from 'utils/animations';
 
 interface BlogIndexProps {
   data: {
@@ -20,10 +18,10 @@ const BlogIndex = ({ data }: BlogIndexProps) => {
   const img = data.image;
 
   return (
-    <motion.div variants={staggerSlowVariants} initial="hidden" animate="visible">
+    <div>
       <Bio data={{ metaData, image: img }} />
       {posts.length > 0 ? <RecentPosts posts={posts} /> : <p>No recent posts</p>}
-    </motion.div>
+    </div>
   );
 };
 
