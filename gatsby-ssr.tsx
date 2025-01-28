@@ -30,7 +30,11 @@ const applyDarkModeClass = `
 })();
 `;
 
-export const onRenderBody = ({ setPreBodyComponents, setHtmlAttributes }: RenderBodyArgs) => {
+export const onRenderBody = ({
+  setHeadComponents,
+  setPreBodyComponents,
+  setHtmlAttributes,
+}: RenderBodyArgs) => {
   const script = createElement('script', {
     key: 'darkmode',
     dangerouslySetInnerHTML: {
@@ -38,6 +42,17 @@ export const onRenderBody = ({ setPreBodyComponents, setHtmlAttributes }: Render
     },
   });
   setHtmlAttributes({ lang: `en` });
+  setHeadComponents([
+    <link
+      rel="preload"
+      href="/fonts/Inter/Inter.var.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="anonymous"
+      key="interFont"
+    />,
+  ]);
+
   setPreBodyComponents([script]);
 };
 

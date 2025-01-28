@@ -1,5 +1,5 @@
-import styled from '@emotion/styled'
-import { MOBILE_MEDIA_QUERY } from 'styles/theme'
+import styled from '@emotion/styled';
+import { MOBILE_MEDIA_QUERY } from 'styles/theme';
 
 export const CategoryWrapper = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ export const CategoryWrapper = styled.div`
   @media ${MOBILE_MEDIA_QUERY} {
     gap: 12px;
   }
-`
+`;
 
 export const CategoryItem = styled.button<{ selected: boolean }>`
   display: flex;
@@ -36,4 +36,4 @@ export const CategoryItem = styled.button<{ selected: boolean }>`
     font-size: 16px;
     padding: 6px 12px;
   }
-`
+`;

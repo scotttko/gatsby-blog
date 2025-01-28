@@ -1,14 +1,14 @@
-import { GatsbyImage } from 'gatsby-plugin-image'
-import { MarkdownRemark } from 'types'
-import { fadeUpVariants } from 'utils/animations'
-import * as S from './styles'
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { MarkdownRemark } from 'types';
+import { fadeUpVariants } from 'utils/animations';
+import * as S from './styles';
 
 interface RecentPostCardProps {
-  post: MarkdownRemark
+  post: MarkdownRemark;
 }
 const RecentPostCard = ({ post }: RecentPostCardProps) => {
-  const title = post.frontmatter.title || post.fields.slug
-  const { thumbnail } = post.frontmatter
+  const title = post.frontmatter.title || post.fields.slug;
+  const { thumbnail } = post.frontmatter;
 
   return (
     <S.RecentPostCard
@@ -31,7 +31,7 @@ const RecentPostCard = ({ post }: RecentPostCardProps) => {
         <S.CardDate>{post.frontmatter.date}</S.CardDate>
       </S.CardContent>
     </S.RecentPostCard>
-  )
-}
+  );
+};
 
-export default RecentPostCard
+export default RecentPostCard;
