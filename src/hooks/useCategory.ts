@@ -1,35 +1,35 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react';
 
 const useCategory = () => {
-  const [category, setCategory] = useState('All')
+  const [category, setCategory] = useState('All');
 
   const switchCategory = useCallback((newCategory: string) => {
-    setCategory(newCategory)
+    setCategory(newCategory);
 
-    const searchParams = new URLSearchParams(window.location.search)
-    searchParams.set('category', newCategory)
-    window.history.pushState({}, '', `${window.location.pathname}?${searchParams.toString()}`)
-  }, [])
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.set('category', newCategory);
+    window.history.pushState({}, '', `${window.location.pathname}?${searchParams.toString()}`);
+  }, []);
 
   const changeCategory = useCallback(() => {
-    const searchParams = new URLSearchParams(window.location.search)
-    const currentCategory = searchParams.get('category')
-    setCategory(currentCategory === null ? 'All' : currentCategory)
-  }, [])
+    const searchParams = new URLSearchParams(window.location.search);
+    const currentCategory = searchParams.get('category');
+    setCategory(currentCategory === null ? 'All' : currentCategory);
+  }, []);
 
   useEffect(() => {
-    changeCategory()
-  }, [changeCategory])
+    changeCategory();
+  }, [changeCategory]);
 
   useEffect(() => {
-    window.addEventListener('popstate', changeCategory)
+    window.addEventListener('popstate', changeCategory);
 
     return () => {
-      window.removeEventListener('popstate', changeCategory)
-    }
-  }, [changeCategory])
+      window.removeEventListener('popstate', changeCategory);
+    };
+  }, [changeCategory]);
 
-  return { category, switchCategory }
-}
+  return { category, switchCategory };
+};
 
-export default useCategory
+export default useCategory;

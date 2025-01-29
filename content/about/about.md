@@ -25,16 +25,30 @@ _<div align="right"><sub><i>Last updated: 2025.01.25</i></sub></div>_
 
 # <u>Experiences</u>
 
+## 라이트스케일
+
+|              |                                                          |
+| -----------: | -------------------------------------------------------- |
+|   **period** | 23.05 ~ current                                          |
+| **position** | Eco FE 팀 / Front-End Engineer                           |
+| **projects** | Kroma Hub / WemixonKroma / KGH / Spectrum / KCU / Kroket |
+|     **tech** | TypeScript, React, Next.js, react-native, viem/wagmi     |
+
+#### TBD
+
+<br />
+<br />
+
 ## 주식회사 산타
 
 |              |                                                                               |
 | -----------: | ----------------------------------------------------------------------------- |
-|   **period** | 21.01 ~ current                                                               |
+|   **period** | 21.01 ~ 23.05                                                                 |
 | **position** | FE 팀 / Front-End Engineer                                                    |
 | **projects** | <a href="https://landing.didisam.com" target="_blank">디디쌤</a> / 디디캐스트 |
 |     **tech** | JavaScript, TypeScript, React, Next.js, Storybook, GitHub Actions             |
 
-#### 디디쌤 프론트엔드 개발 (22.01 ~)
+#### 디디쌤 프론트엔드 개발 (22.01 ~ 23.05)
 
 - 마이페이지 도메인 공통 영역 구축 및 라우팅 구조 설계
 - 강의 홈페이지 wysiwyg 빌더 기능 구현

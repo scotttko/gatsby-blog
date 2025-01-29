@@ -9,23 +9,6 @@ import { createElement } from 'react';
 import Layout from 'layouts';
 import ThemeProvider from 'styles/ThemeProvider';
 
-const getInitialTheme = () => {
-  try {
-    if (typeof window !== 'undefined') {
-      const mode = localStorage.getItem('theme');
-      if (mode) return mode;
-
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light';
-      return systemTheme;
-    }
-  } catch (e) {
-    return 'light';
-  }
-  return 'light';
-};
-
 const applyDarkModeClass = `
 (function() {
   try {
@@ -53,8 +36,7 @@ export const onRenderBody = ({
       __html: applyDarkModeClass,
     },
   });
-  const initialTheme = getInitialTheme();
-  setHtmlAttributes({ lang: 'en', ...{ 'data-theme': initialTheme } });
+  setHtmlAttributes({ lang: 'en', ...{ 'data-theme': 'dark' } });
   setHeadComponents([
     <link
       rel="preload"

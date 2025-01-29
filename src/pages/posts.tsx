@@ -40,7 +40,11 @@ const Posts = ({ data }: PostsProps) => {
     const categorySet = new Set(['All']);
     posts.forEach((post) => {
       const categoryArr = post.frontmatter.categories.split(' ');
-      categoryArr.forEach((category) => categorySet.add(category));
+      categoryArr.forEach((category) => {
+        if (category !== 'test') {
+          categorySet.add(category);
+        }
+      });
     });
 
     return [...categorySet];

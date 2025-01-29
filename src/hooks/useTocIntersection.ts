@@ -1,48 +1,53 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react';
 
-export const tableOfContentsId = 'toc'
+export const getDecodedLink = (hash: string) => decodeURIComponent(hash).slice(1);
 
-export const getDecodedLink = (hash: string) => decodeURIComponent(hash).slice(1)
-
-const useTocIntersection = () => {
-  const [anchorEl, setAnchorEl] = useState<HTMLAnchorElement[]>()
-  const [lists, setLists] = useState<string[]>()
-  const observer = useRef<IntersectionObserver | null>(null)
-  const [activeId, setActiveId] = useState('')
-
-  useEffect(() => {
-    const anchors: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(
-      `.${tableOfContentsId} a`
-    )
-    const anchorArr = Array.from(anchors)
-    setAnchorEl(anchorArr)
-    setLists(anchorArr.map((a) => getDecodedLink(a.hash)))
-  }, [])
+interface Props {
+  id: string;
+}
+const useTocIntersection = ({ id }: Props) => {
+  const observer = useRef<IntersectionObserver | null>(null);
+  const [activeId, setActiveId] = useState('');
 
   const handleScroll = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setActiveId(entry.target.id)
+        setActiveId(entry.target.id);
       }
-    })
-  }
+    });
+  };
 
   useEffect(() => {
-    observer.current = new IntersectionObserver(handleScroll, { rootMargin: `0% 0% -80% 0%` })
+    observer.current = new IntersectionObserver(handleScroll, { rootMargin: `0% 0% -80% 0%` });
 
-    if (lists) {
-      lists.forEach((id) => {
-        const el = document.getElementById(id)
+    const anchors: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(`.${id} a`);
+    const anchorArr = Array.from(anchors);
+
+    if (anchorArr) {
+      const tocList = anchorArr.map((a) => getDecodedLink(a.hash));
+      tocList.forEach((elId) => {
+        const el = document.getElementById(elId);
         if (el) {
-          observer.current?.observe(el)
+          observer.current?.observe(el);
         }
-      })
+      });
     }
 
-    return () => observer && observer.current?.disconnect()
-  }, [lists])
+    return () => observer && observer.current?.disconnect();
+  }, [id]);
 
-  return { activeId, anchorEl }
-}
+  useEffect(() => {
+    const anchors: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(`.${id} a`);
+    const anchorArr = Array.from(anchors);
 
-export default useTocIntersection
+    anchorArr.forEach((el) => {
+      if (getDecodedLink(el.hash) === activeId) {
+        el.classList.add('active');
+      } else {
+        el.classList.remove('active');
+      }
+    });
+  }, [activeId, id]);
+};
+
+export default useTocIntersection;

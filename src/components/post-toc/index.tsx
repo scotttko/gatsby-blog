@@ -1,37 +1,23 @@
-import useTocIntersection, { getDecodedLink, tableOfContentsId } from 'hooks/useTocIntersection'
-import { useEffect } from 'react'
-import * as S from './styles'
+import useTocIntersection from 'hooks/useTocIntersection';
+import * as S from './styles';
 
 interface PostTocProps {
-  content: string
+  content: string;
 }
 
+const TOC_ID = 'toc';
+
 const PostToc = ({ content }: PostTocProps) => {
-  const { activeId, anchorEl } = useTocIntersection()
-
-  useEffect(() => {
-    if (!anchorEl) return
-
-    anchorEl.forEach((el) => {
-      if (getDecodedLink(el.hash) === activeId) {
-        el.classList.add('active')
-      } else {
-        el.classList.remove('active')
-      }
-    })
-  }, [activeId, anchorEl])
+  useTocIntersection({ id: TOC_ID });
 
   return (
     <S.PostTocWrapper>
       <S.TocCard>
         <S.TocTitle>Table of Contents</S.TocTitle>
-        <S.TocContainer
-          className={tableOfContentsId}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <S.TocContainer className={TOC_ID} dangerouslySetInnerHTML={{ __html: content }} />
       </S.TocCard>
     </S.PostTocWrapper>
-  )
-}
+  );
+};
 
-export default PostToc
+export default PostToc;

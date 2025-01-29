@@ -1,6 +1,7 @@
 import { MarkdownRemark } from 'types';
 import { fadeUpVariants } from 'utils/animations';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { memo } from 'react';
 import * as S from './styles';
 
 interface PostItemProps {
@@ -41,4 +42,4 @@ const PostItem = ({ post }: PostItemProps) => {
   );
 };
 
-export default PostItem;
+export default memo(PostItem);

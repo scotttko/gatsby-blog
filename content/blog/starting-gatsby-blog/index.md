@@ -2,7 +2,7 @@
 title: Gatsby 기술 블로그 개발 후기
 date: '2023-02-25T00:00:00Z'
 thumbnail: ./gatsby.png
-categories: dev 회고
+categories: Dev 회고
 ---
 
 첫 기술 블로그를 Gatsby로 만들면서 고민했던 내용들을 정리해보았습니다.<br /> 아직 개선할 점들이 많지만 블로그 운영에 필수적인 기능들을 우선적으로 구현하였으며 부족한 것들은 하나씩 개선해나갈 예정입니다. 😁
@@ -118,7 +118,7 @@ const applyDarkModeClass = `
     }
   } catch (e) {}
 })();
-`
+`;
 
 export const onRenderBody = ({ setPreBodyComponents, setHtmlAttributes }: RenderBodyArgs) => {
   const script = createElement('script', {
@@ -126,10 +126,10 @@ export const onRenderBody = ({ setPreBodyComponents, setHtmlAttributes }: Render
     dangerouslySetInnerHTML: {
       __html: applyDarkModeClass,
     },
-  })
-  setHtmlAttributes({ lang: `en` })
-  setPreBodyComponents([script])
-}
+  });
+  setHtmlAttributes({ lang: `en` });
+  setPreBodyComponents([script]);
+};
 ```
 
 <br />
@@ -148,15 +148,15 @@ const style = (theme: Theme) => css`
 
         ...
     }
-`
+`;
 ```
 
 ```typescript
 // ThemeProvider.tsx
 
 useEffect(() => {
-  document.body.classList.remove('dark')
-}, [])
+  document.body.classList.remove('dark');
+}, []);
 ```
 
 <br />
@@ -167,22 +167,22 @@ useEffect(() => {
 
 ```typescript
 useEffect(() => {
-  const { pathname } = document.location
-  if (utteranceExludedPath.includes(pathname)) return
+  const { pathname } = document.location;
+  if (utteranceExludedPath.includes(pathname)) return;
 
   const message = {
     type: 'set-theme',
     theme: theme === 'light' ? LIGHT_THEME : DARK_THEME,
-  }
+  };
 
-  const iframe = document.querySelector<HTMLIFrameElement>('.utterances-frame')
+  const iframe = document.querySelector<HTMLIFrameElement>('.utterances-frame');
 
-  const value = localStorage.getItem('theme') as ThemeType
+  const value = localStorage.getItem('theme') as ThemeType;
 
   if (iframe && value) {
-    iframe.contentWindow?.postMessage(message, 'https://utteranc.es')
+    iframe.contentWindow?.postMessage(message, 'https://utteranc.es');
   }
-}, [theme])
+}, [theme]);
 ```
 
 <br />
@@ -195,12 +195,12 @@ useEffect(() => {
 ```typescript
 // animation.ts
 
-import { Variants } from 'framer-motion'
+import { Variants } from 'framer-motion';
 
 export const staggerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
-}
+};
 
 export const fadeInVariants: Variants = {
   hidden: {
@@ -215,7 +215,7 @@ export const fadeInVariants: Variants = {
     opacity: 0,
     transition: { duration: 0.6 },
   },
-}
+};
 ```
 
 <br />

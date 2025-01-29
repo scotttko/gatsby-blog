@@ -3,7 +3,7 @@ title: Markdown Template Example
 date: '2023-02-14T00:00:00Z'
 description: 마크다운 문법 사용 템플릿
 thumbnail: ./markdown.jpeg
-categories: 테스트
+categories: test
 ---
 
 # h1 Heading
@@ -78,10 +78,10 @@ Syntax highlighting
 
 ```js
 var foo = function (bar) {
-  return bar++
-}
+  return bar++;
+};
 
-console.log(foo(5))
+console.log(foo(5));
 ```
 
 Syntax highlighting with file name, highlight line
