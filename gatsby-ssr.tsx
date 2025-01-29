@@ -9,6 +9,23 @@ import { createElement } from 'react';
 import Layout from 'layouts';
 import ThemeProvider from 'styles/ThemeProvider';
 
+const getInitialTheme = () => {
+  try {
+    if (typeof window !== 'undefined') {
+      const mode = localStorage.getItem('theme');
+      if (mode) return mode;
+
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+      return systemTheme;
+    }
+  } catch (e) {
+    return 'light';
+  }
+  return 'light';
+};
+
 const applyDarkModeClass = `
 (function() {
   try {
@@ -19,13 +36,8 @@ const applyDarkModeClass = `
       return;
     }
       
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
-    if(systemTheme.matches) {
-      document.documentElement.dataset.theme = 'dark';
-    } else {
-      document.documentElement.dataset.theme = 'light';
-    }
-
+   const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+   document.documentElement.dataset.theme = systemTheme;
   } catch (e) {}
 })();
 `;
@@ -41,7 +53,8 @@ export const onRenderBody = ({
       __html: applyDarkModeClass,
     },
   });
-  setHtmlAttributes({ lang: `en` });
+  const initialTheme = getInitialTheme();
+  setHtmlAttributes({ lang: 'en', ...{ 'data-theme': initialTheme } });
   setHeadComponents([
     <link
       rel="preload"

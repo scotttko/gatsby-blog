@@ -11,15 +11,6 @@ import 'prismjs/themes/prism-tomorrow.css';
 import { GatsbyBrowser } from 'gatsby';
 import Layout from 'layouts';
 import ThemeProvider from 'styles/ThemeProvider';
-import ReactDOM from 'react-dom/client';
-import { ReactNode } from 'react';
-
-export const replaceHydrateFunction = () => {
-  return (element: ReactNode, container: ReactDOM.Container) => {
-    const root = ReactDOM.createRoot(container);
-    root.render(element);
-  };
-};
 
 export const wrapRootElement: GatsbyBrowser['wrapRootElement'] = ({ element }) => (
   <ThemeProvider>{element}</ThemeProvider>
