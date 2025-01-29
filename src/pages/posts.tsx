@@ -40,11 +40,7 @@ const Posts = ({ data }: PostsProps) => {
     const categorySet = new Set(['All']);
     posts.forEach((post) => {
       const categoryArr = post.frontmatter.categories.split(' ');
-      categoryArr.forEach((category) => {
-        if (category !== 'test') {
-          categorySet.add(category);
-        }
-      });
+      categoryArr.forEach((category) => categorySet.add(category));
     });
 
     return [...categorySet];
@@ -73,7 +69,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { categories: { ne: null } } }
+      filter: { frontmatter: { categories: { nin: [null, "test"] } } }
       sort: { frontmatter: { date: DESC } }
     ) {
       nodes {

@@ -12,10 +12,7 @@ const AllPosts = ({ posts, category }: PostsProps) => {
     () =>
       posts.filter((post) => {
         const categoryArr = post.frontmatter.categories.split(' ');
-
-        return (
-          (category === 'All' || categoryArr.includes(category)) && !categoryArr.includes('test')
-        );
+        return category === 'All' || categoryArr.includes(category);
       }),
     [posts, category]
   );

@@ -50,7 +50,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { categories: { ne: null } } }
+      filter: { frontmatter: { categories: { nin: [null, "test"] } } }
       sort: { frontmatter: { date: DESC } }
       limit: 4
     ) {
