@@ -8,7 +8,7 @@ interface RecentPostsProps {
   posts: MarkdownRemark[];
 }
 const RecentPosts = ({ posts }: RecentPostsProps) => (
-  <S.RecentPostsWrapper variants={fadeInVariants} initial="hidden" animate="visible">
+  <S.RecentPostsWrapper variants={fadeInVariants}>
     <S.Title>Recent Posts</S.Title>
     <S.RecentPostContainer variants={staggerVariants}>
       {posts.map((post) => (
