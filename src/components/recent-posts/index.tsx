@@ -1,14 +1,14 @@
-import { FiChevronRight } from 'react-icons/fi'
-import { MarkdownRemark } from 'types'
-import { fadeInVariants, staggerVariants } from 'utils/animations'
-import RecentPostCard from './RecentPostCard'
-import * as S from './styles'
+import { FiChevronRight } from 'react-icons/fi';
+import { MarkdownRemark } from 'types';
+import { fadeInVariants, staggerVariants } from 'utils/animations';
+import RecentPostCard from './RecentPostCard';
+import * as S from './styles';
 
 interface RecentPostsProps {
-  posts: MarkdownRemark[]
+  posts: MarkdownRemark[];
 }
 const RecentPosts = ({ posts }: RecentPostsProps) => (
-  <S.RecentPostsWrapper variants={fadeInVariants}>
+  <S.RecentPostsWrapper variants={fadeInVariants} initial="hidden" animate="visible">
     <S.Title>Recent Posts</S.Title>
     <S.RecentPostContainer variants={staggerVariants}>
       {posts.map((post) => (
@@ -20,6 +20,6 @@ const RecentPosts = ({ posts }: RecentPostsProps) => (
       <FiChevronRight />
     </S.PostLink>
   </S.RecentPostsWrapper>
-)
+);
 
-export default RecentPosts
+export default RecentPosts;

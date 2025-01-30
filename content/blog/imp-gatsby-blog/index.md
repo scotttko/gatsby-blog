@@ -155,7 +155,7 @@ TOC 기능은 글의 목차를 보여주고 해당 목차에 링크를 걸어 �
 
 이제 파싱한 TOC 데이터를 그려야 하는데 `dangerouslySetInnerHTML`를 사용하여 UI 자체는 큰 문제 없이 구현할 수 있었다.
 이 기능을 구현하면서 내가 신경 쓴 부분은 내가 위치한 header에 대한 하이라이팅 기능이였는데,
-나는 `IntersectionObserver`를 사용히야 header 태그의 intersected 상태를 확인하고 하이라이트 되도록 구현하였다.
+나는 `IntersectionObserver`를 사용하여 header 태그의 intersected 상태를 확인하고 하이라이트 되도록 구현하였다.
 
 ```ts
   ...
@@ -190,6 +190,8 @@ TOC 기능은 글의 목차를 보여주고 해당 목차에 링크를 걸어 �
   ...
 };
 ```
+
+<br />
 
 ### 3. 포스트 카테고리 기능
 
