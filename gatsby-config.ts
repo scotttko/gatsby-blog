@@ -85,13 +85,15 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://scottko.netlify.app',
+        siteUrl: metaData.siteUrl,
         stripQueryString: true,
       },
     },
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
+        host: metaData.siteUrl,
+        sitemap: `${metaData.siteUrl}/sitemap-index.xml`,
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },

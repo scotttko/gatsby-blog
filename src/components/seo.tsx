@@ -5,14 +5,14 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import * as React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import * as React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
 interface SeoProps {
-  description?: string
-  title: string
-  image?: string
-  children?: React.ReactNode
+  description?: string;
+  title: string;
+  image?: string;
+  children?: React.ReactNode;
 }
 const Seo = ({ description, title, image, children }: SeoProps) => {
   const { site } = useStaticQuery(
@@ -28,14 +28,14 @@ const Seo = ({ description, title, image, children }: SeoProps) => {
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
-  const { siteUrl, ogImage } = site.siteMetadata
+  const metaDescription = description || site.siteMetadata.description;
+  const defaultTitle = site.siteMetadata?.title;
+  const { siteUrl, ogImage } = site.siteMetadata;
 
   return (
-    <>
+    <head>
       <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={title} />
@@ -47,8 +47,8 @@ const Seo = ({ description, title, image, children }: SeoProps) => {
 
       <meta name="google-site-verification" content="AJ6jBaXPCGTb8rxfZRBcrLBXOZNicPSC5gY1JxZ-d8Y" />
       {children}
-    </>
-  )
-}
+    </head>
+  );
+};
 
-export default Seo
+export default Seo;
