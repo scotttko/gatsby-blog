@@ -1,6 +1,5 @@
 import { MarkdownRemark } from 'types';
 import { fadeUpVariants } from 'utils/animations';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import { memo } from 'react';
 import * as S from './styles';
 
@@ -22,11 +21,7 @@ const PostItem = ({ post }: PostItemProps) => {
       viewport={{ amount: 0.5, once: true }}
     >
       {thumbnail && (
-        <GatsbyImage
-          image={thumbnail.childImageSharp.gatsbyImageData}
-          alt="thumbnail"
-          style={{ borderRadius: '8px', width: '240px' }}
-        />
+        <S.PostItemImage image={thumbnail.childImageSharp.gatsbyImageData} alt="thumbnail" />
       )}
       <S.PostItemWrapper>
         <S.PostItemTitle>{title}</S.PostItemTitle>

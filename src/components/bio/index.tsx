@@ -24,7 +24,7 @@ const Bio = ({ data }: BioProps) => {
         <S.BioSubtitle variants={fadeInVariants}>Front-End Engineer</S.BioSubtitle>
         {author?.name && (
           <S.BioContent variants={fadeInVariants}>
-            Written by <strong>{author.name}</strong> {author?.summary || null}
+            Written by <strong>{author.name}</strong>
           </S.BioContent>
         )}
         <S.BioSocialWrapper variants={fadeInVariants}>
