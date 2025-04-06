@@ -50,7 +50,10 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { categories: { nin: [null, "test"] } } }
+      filter: {
+        fileAbsolutePath: { regex: "/content/blog/" }
+        frontmatter: { categories: { nin: [null, "test"] } }
+      }
       sort: { frontmatter: { date: DESC } }
       limit: 4
     ) {

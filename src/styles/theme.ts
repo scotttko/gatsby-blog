@@ -9,7 +9,7 @@ export const lightTheme = {
     buttonBgColor: '#F4F4F4',
     buttonBgHoverColor: '#E4E4E4',
   },
-}
+};
 
 export const darkTheme = {
   palette: {
@@ -22,7 +22,7 @@ export const darkTheme = {
     buttonBgColor: '#303033',
     buttonBgHoverColor: '#5D5D5D',
   },
-}
+};
 
 export const defaultTheme = {
   palette: {
@@ -31,13 +31,15 @@ export const defaultTheme = {
 
     mainTextColor: 'var(--color-main-text)',
     subTextColor: 'var(--color-sub-text)',
+    secondaryTextColor: 'var(--color-secondary-text)',
 
     buttonBgColor: 'var(--color-button-bg)',
     buttonBgHoverColor: 'var(--color-button-bg-hover)',
+    badgeBgColor: 'var(--color-badge-bg)',
   },
-}
+};
 
-export type ITheme = typeof defaultTheme
+export type ITheme = typeof defaultTheme;
 
-export const MOBILE_MAXWIDTH = `(max-width: 768px)`
-export const MOBILE_MEDIA_QUERY = `screen and ${MOBILE_MAXWIDTH}`
+export const MOBILE_MAXWIDTH = `(max-width: 768px)`;
+export const MOBILE_MEDIA_QUERY = `screen and ${MOBILE_MAXWIDTH}`;

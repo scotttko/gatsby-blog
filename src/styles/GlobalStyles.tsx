@@ -7,20 +7,24 @@ const style = (theme: Theme) => css`
 
     --color-main-text: #000000;
     --color-sub-text: #383a42;
+    --color-secondary-text: #25262c;
 
     --color-button-bg: #ededf1;
     --color-button-bg-hover: #d8dadf;
+    --color-badge-bg: #d8dadf;
   }
 
   [data-theme='dark'] {
-    --color-bg: #25262c;
+    --color-bg: #282b3b;
     --color-sub-bg: #383a42;
 
     --color-main-text: #ffffff;
     --color-sub-text: #b5b9c4;
+    --color-secondary-text: #ededf1;
 
     --color-button-bg: #383a42;
     --color-button-bg-hover: #3f434d;
+    --color-badge-bg: #494e5b;
   }
 
   * {

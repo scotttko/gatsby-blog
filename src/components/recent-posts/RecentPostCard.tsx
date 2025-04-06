@@ -1,10 +1,10 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { MarkdownRemark } from 'types';
+import { Frontmatter, MarkdownRemark } from 'types';
 import { fadeUpVariants } from 'utils/animations';
 import * as S from './styles';
 
 interface RecentPostCardProps {
-  post: MarkdownRemark;
+  post: MarkdownRemark<Frontmatter>;
 }
 const RecentPostCard = ({ post }: RecentPostCardProps) => {
   const title = post.frontmatter.title || post.fields.slug;

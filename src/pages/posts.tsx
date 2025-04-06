@@ -6,12 +6,12 @@ import { graphql } from 'gatsby';
 import { useMemo } from 'react';
 import useCategory from 'hooks/useCategory';
 import { MOBILE_MEDIA_QUERY } from 'styles/theme';
-import { MarkdownRemark, SiteMetadata } from 'types';
+import { Frontmatter, MarkdownRemark, SiteMetadata } from 'types';
 
 interface PostsProps {
   data: {
     site: { siteMetadata: SiteMetadata };
-    allMarkdownRemark: { nodes: MarkdownRemark[] };
+    allMarkdownRemark: { nodes: MarkdownRemark<Frontmatter>[] };
   };
 }
 
@@ -69,7 +69,10 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { categories: { nin: [null, "test"] } } }
+      filter: {
+        fileAbsolutePath: { regex: "/content/blog/" }
+        frontmatter: { categories: { nin: [null, "test"] } }
+      }
       sort: { frontmatter: { date: DESC } }
     ) {
       nodes {

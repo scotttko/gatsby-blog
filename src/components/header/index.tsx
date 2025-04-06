@@ -27,6 +27,9 @@ const Header = ({ location }: HeaderProps) => {
           <S.HeaderLink to="/about" selected={pathname === '/about/'}>
             About
           </S.HeaderLink>
+          <S.HeaderLink to="/projects" selected={pathname === '/projects/'}>
+            Projects
+          </S.HeaderLink>
         </S.HeaderMenu>
 
         <ThemeToggle />

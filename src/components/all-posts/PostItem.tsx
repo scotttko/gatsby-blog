@@ -1,15 +1,17 @@
-import { MarkdownRemark } from 'types';
+import { Frontmatter, MarkdownRemark } from 'types';
 import { fadeUpVariants } from 'utils/animations';
 import { memo } from 'react';
 import * as S from './styles';
 
 interface PostItemProps {
-  post: MarkdownRemark;
+  post: MarkdownRemark<Frontmatter>;
 }
 const PostItem = ({ post }: PostItemProps) => {
   const title = post.frontmatter.title || post.fields.slug;
   const categories = post.frontmatter.categories.split(' ');
   const { thumbnail } = post.frontmatter;
+
+  console.log(post.fields.slug);
 
   return (
     <S.PostItemContainer

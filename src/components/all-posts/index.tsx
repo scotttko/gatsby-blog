@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
-import { MarkdownRemark } from 'types';
+import { Frontmatter, MarkdownRemark } from 'types';
 import PostItem from './PostItem';
 import * as S from './styles';
 
 interface PostsProps {
-  posts: MarkdownRemark[];
+  posts: MarkdownRemark<Frontmatter>[];
   category: string;
 }
 const AllPosts = ({ posts, category }: PostsProps) => {

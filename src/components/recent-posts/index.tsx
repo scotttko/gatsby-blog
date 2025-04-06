@@ -1,11 +1,11 @@
 import { FiChevronRight } from 'react-icons/fi';
-import { MarkdownRemark } from 'types';
+import { Frontmatter, MarkdownRemark } from 'types';
 import { fadeInVariants, staggerVariants } from 'utils/animations';
 import RecentPostCard from './RecentPostCard';
 import * as S from './styles';
 
 interface RecentPostsProps {
-  posts: MarkdownRemark[];
+  posts: MarkdownRemark<Frontmatter>[];
 }
 const RecentPosts = ({ posts }: RecentPostsProps) => (
   <S.RecentPostsWrapper variants={fadeInVariants}>

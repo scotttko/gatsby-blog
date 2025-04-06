@@ -5,7 +5,7 @@ import Post from 'components/post';
 import PostNav from 'components/post-nav';
 import { motion } from 'framer-motion';
 
-import { MarkdownRemark, SiteMetadata } from 'types';
+import { Frontmatter, MarkdownRemark, SiteMetadata } from 'types';
 import Utterances from 'components/utterances';
 import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
@@ -13,10 +13,10 @@ import { fadeUpVariants } from 'utils/animations';
 
 interface BlogPostTemplateProps {
   data: {
-    previous: MarkdownRemark;
-    next: MarkdownRemark;
+    previous: MarkdownRemark<Frontmatter>;
+    next: MarkdownRemark<Frontmatter>;
     site: { siteMetadata: SiteMetadata };
-    markdownRemark: MarkdownRemark;
+    markdownRemark: MarkdownRemark<Frontmatter>;
   };
   // location: Location
 }
@@ -55,7 +55,7 @@ const BlogPostTemplate = ({
 export const Head = ({
   data: { markdownRemark: post },
 }: {
-  data: { markdownRemark: MarkdownRemark };
+  data: { markdownRemark: MarkdownRemark<Frontmatter> };
 }) => {
   const { title, description, thumbnail } = post.frontmatter;
   const thumbnailSrc = thumbnail.childImageSharp.gatsbyImageData.images.fallback?.src;

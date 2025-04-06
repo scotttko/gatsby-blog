@@ -1,12 +1,12 @@
 import PostToc from 'components/post-toc';
 import { useMediaQuery } from 'react-responsive';
-import { MarkdownRemark } from 'types';
+import { Frontmatter, MarkdownRemark } from 'types';
 
 import PostHeader from './PostHeader';
 import * as S from './styles';
 
 interface PostProps {
-  post: MarkdownRemark;
+  post: MarkdownRemark<Frontmatter>;
 }
 const Post = ({ post }: PostProps) => {
   const showToc = useMediaQuery({ query: '(min-width: 1024px)' });
