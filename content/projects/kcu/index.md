@@ -4,7 +4,7 @@ description: 커뮤니티 구성원에게 정체성을 부여하고 게임 메�
 period: 'Jun 2024 - Oct 2024'
 thumbnail: ./kcu-thumbnail.png
 category: Lightscale
-status: LIVE
+status: WIP
 tech: React Next.js TypeScript tanstack-query zustand viem/wagmi
 ---
 

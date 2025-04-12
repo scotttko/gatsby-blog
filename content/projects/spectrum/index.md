@@ -4,6 +4,7 @@ description: ETH를 스테이킹(예치)하고 그에 대한 보상을 유저에
 period: 'Feb 2024 - May 2024'
 thumbnail: ./spectrum-thumbnail.png
 category: Lightscale
+status: WIP
 tech: React Next.js TypeScript tanstack-query recoil viem/wagmi
 ---
 

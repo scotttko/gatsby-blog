@@ -1,4 +1,3 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { Link } from 'gatsby';
@@ -17,8 +16,6 @@ function ProjectCard({ project }: ProjectCardProps) {
   const isDisabled = status === 'WIP';
   const tecList = tech ? tech.split(' ').slice(0, 3) : [];
 
-  console.log(project.frontmatter);
-
   return (
     <ProjectCardContainer
       to={isDisabled ? '#' : project.fields.slug}
@@ -27,7 +24,6 @@ function ProjectCard({ project }: ProjectCardProps) {
         whileTap: { scale: 0.98 },
       })}
       aria-disabled={isDisabled}
-      $disabled={isDisabled}
     >
       {thumbnail && (
         <ImageWrapper>
@@ -57,7 +53,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 
 export default ProjectCard;
 
-const ProjectCardContainer = styled(motion(Link))<{ $disabled: boolean }>`
+const ProjectCardContainer = styled(motion(Link))`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -66,18 +62,17 @@ const ProjectCardContainer = styled(motion(Link))<{ $disabled: boolean }>`
   border-radius: 16px;
   border: 1.5px solid transparent;
 
-  ${({ $disabled, theme }) =>
-    $disabled
-      ? css`
-          pointer-events: none;
-          cursor: default;
-        `
-      : css`
-          &:hover {
-            background-color: ${theme.palette.buttonBgColor};
-            border: 1.5px solid ${theme.palette.mainTextColor};
-          }
-        `}
+  &[aria-disabled='true'] {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &[aria-disabled='false'] {
+    &:hover {
+      background-color: ${({ theme }) => theme.palette.buttonBgColor};
+      border: 1.5px solid ${({ theme }) => theme.palette.mainTextColor};
+    }
+  }
 
   @media ${MOBILE_MEDIA_QUERY} {
     padding: 10px;

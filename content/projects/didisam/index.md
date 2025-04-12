@@ -4,6 +4,7 @@ description: 교육의 모든 프로세스를 디지털 전환하여 학습 데�
 period: 'Jan 2022 - May 2023'
 thumbnail: ./didisam-thumbnail.png
 category: Santa
+status: WIP
 tech: React Next.js TypeScript Storybook
 ---
 

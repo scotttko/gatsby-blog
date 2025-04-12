@@ -4,7 +4,7 @@ description: KRO 토큰 및 KGH NFT 보유자들이 Kroma 네트워크의 보안
 period: 'Jan 2024 - Feb 2024'
 thumbnail: ./kgh-thumbnail.png
 category: Lightscale
-status: LIVE
+status: WIP
 tech: React Next.js TypeScript tanstack-query recoil viem/wagmi
 ---
 
