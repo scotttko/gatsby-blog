@@ -1,5 +1,6 @@
-import styled from '@emotion/styled'
-import { Link } from 'gatsby'
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
+import { MOBILE_MEDIA_QUERY } from 'styles/theme';
 
 export const HeaderWrapper = styled.header`
   display: flex;
@@ -11,7 +12,7 @@ export const HeaderWrapper = styled.header`
   left: 0;
   z-index: 100;
   padding: 10px 0;
-`
+`;
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -20,27 +21,46 @@ export const HeaderContainer = styled.div`
   width: 100%;
   max-width: 1152px;
   padding: 0 32px;
-`
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    padding: 0 20px;
+  }
+`;
 
 export const HeaderMenu = styled.div`
   display: flex;
   align-items: center;
-`
+  width: 100%;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    justify-content: space-between;
+  }
+`;
+
+export const HeaderMenuList = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 export const HeaderLink = styled(Link)<{ selected: boolean; padding?: string }>`
   display: flex;
   align-items: center;
   font-size: 18px;
   line-height: 1.5;
-  font-weight: ${({ selected }) => (selected ? 700 : 400)};
+  font-weight: 700;
+  color: ${({ selected, theme }) => (selected ? '#0a87ef' : theme.palette.mainTextColor)};
   padding: ${({ padding }) => padding || '6px 12px'};
   border-radius: 8px;
-  color: ${({ theme }) => theme.palette.mainTextColor};
 
   &:hover {
     background-color: ${({ theme }) => theme.palette.buttonBgColor};
   }
-`
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 16px;
+    padding: ${({ padding }) => padding || '4px 8px'};
+  }
+`;
 
 export const ThemeButton = styled.button`
   display: flex;
@@ -54,4 +74,10 @@ export const ThemeButton = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.palette.buttonBgColor};
   }
-`
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+  }
+`;

@@ -41,6 +41,10 @@ const ListContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    gap: 8px;
+  }
 `;
 
 const ListTitle = styled.h2`
@@ -61,6 +65,6 @@ const ListWrapper = styled.div`
 
   @media ${MOBILE_MEDIA_QUERY} {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-gap: 4px;
+    grid-gap: 0;
   }
 `;

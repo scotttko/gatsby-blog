@@ -102,22 +102,27 @@ Web2 => Web3 전환의 역할을 하는 React Native 리워드앱으로,
   - Read to Earn (기사 읽고 포인트 받기)
     - 10초 동안 news 페이지에 머무를 시 포인트 지급되도록 로직 구현
 
-<div style="display: flex; gap: 1rem; justify-content: center; width: 100%">
-  <video controls muted width="200" height="433">
-    <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744448221/pairing.mp4" type="video/mp4" />
-  </video>
-
-  <video controls muted width="200" height="433">
-    <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744448221/find-diff.mp4" type="video/mp4" />
-  </video>
-
-   <video controls muted width="200" height="433">
-    <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744448222/multiple.mp4" type="video/mp4" />
-  </video>
-
-   <video controls muted width="200" height="433">
-    <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744448223/news.mp4" type="video/mp4" />
-  </video>
+<div style="display: flex; gap: 8px; justify-content: center; width: 100%; max-width: 800px; margin: 0 auto">
+  <div>
+     <video controls muted style="width: 100%">
+      <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744448221/pairing.mp4" type="video/mp4" />
+    </video>
+  </div>
+   <div>
+     <video controls muted style="width: 100%">
+      <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744448221/find-diff.mp4" type="video/mp4" />
+    </video>
+  </div>
+   <div>
+     <video controls muted style="width: 100%">
+      <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744448221/multiple.mp4" type="video/mp4" />
+    </video>
+  </div>
+   <div>
+     <video controls muted style="width: 100%">
+      <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744448221/news.mp4" type="video/mp4" />
+    </video>
+  </div>
 </div>
 
 <br />
@@ -138,16 +143,16 @@ Web2 => Web3 전환의 역할을 하는 React Native 리워드앱으로,
   - 로딩 UI와 렌더되는 컴포넌트의 책임이 분리되어 가독성 및 유지보수 향상
   - 스켈레톤 컴포넌트를 로딩 UI로 활용하여 layout shift 개선 및 시각적 안정성 향상
 
-<div style="display: flex; gap: 1rem; justify-content: center; width: 100%">
-  <div style="display: flex; flex-direction: column; align-items: center">
-    <video controls muted width="200" height="433">
+<div style="display: flex; gap: 1rem; justify-content: center; width: 100%; max-width: 500px; margin: 0 auto">
+  <div style="display: flex; flex-direction: column; align-items: center; width: 100%">
+    <video controls muted style="width: 100%">
       <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744451785/home-before.mp4" type="video/mp4" />
     </video>
      <p>Before</p>
   </div>
 
-  <div style="display: flex; flex-direction: column; align-items: center">
-    <video controls muted width="200" height="433">
+  <div style="display: flex; flex-direction: column; align-items: center; width: 100%">
+    <video controls muted style="width: 100%">
       <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744451786/home-after.mp4" type="video/mp4" />
     </video>
     <p>After</p>
@@ -196,7 +201,7 @@ Web2 => Web3 전환의 역할을 하는 React Native 리워드앱으로,
 
 #### 개요
 
-- 기존 쿠폰 리스트 페이지가 Intersection Observer를 활용한 무한 스크롤 형태로 구현되어 있었으나, 스크롤에 따라 리스트가 길어질수록 일부 안드로이드 기기에서 스크롤 렉 현상이 발생
+- 기존 쿠폰 리스트 페이지가 Intersection Observer를 활용한 무한 스크롤 형태로 구현되어 있었으나, 스크롤에 따라 리스트가 길어질수록 일부 안드로이드 기기에서 스크롤 렉 현상 발생
 - 해당 문제를 해결하기 위해 React Native 공식 문서의 [FlatList 최적화 가이드](https://reactnative.dev/docs/optimizing-flatlist-configuration)를 바탕으로 리스트 렌더링을 정밀하게 튜닝하고, 스크롤 성능을 체감적으로 향상시킴
 
 #### 주요 역할 및 기여
@@ -207,7 +212,7 @@ Web2 => Web3 전환의 역할을 하는 React Native 리워드앱으로,
   - getItemLayout: 고정 높이 레이아웃 최적화로 스크롤 위치 계산 비용 절감
 - 이미지 최적화
   - 각 쿠폰 아이템의 이미지를 기존 `expo-image`에서 `@d11/react-native-fast-image`로 교체하여 이미지 최적화 적용
-  - 기존 이미지 컴포넌트는 JS스레드에서 이미지 로드까지 처리함에 반해 `react-native-fast-image`는 네이티브 레이어에서 이미지 요청과 캐싱을 처리하기 떄문에 JS스레드를 이미지 작업에서빠르게 해방시키고 결과적으로 렌더링 및 UI 반응성을 향상시킴
+  - 기존 이미지 컴포넌트는 JS스레드에서 이미지 로드까지 처리함에 반해 `react-native-fast-image`는 네이티브 레이어에서 이미지 요청과 캐싱을 처리하기 떄문에 JS스레드를 이미지 작업에서 빠르게 해방시키고 결과적으로 렌더링 및 UI 반응성을 향상시킴
 - 불필요한 리렌더링 방지
   - renderItem 함수를 JSX 외부에 위치시키고 useCallback과 memo()를 활용하여 불필요한 리스트 리렌더링 방지
   - keyExtractor 정의하여 diff 성능 개선

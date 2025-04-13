@@ -11,8 +11,6 @@ const PostItem = ({ post }: PostItemProps) => {
   const categories = post.frontmatter.categories.split(' ');
   const { thumbnail } = post.frontmatter;
 
-  console.log(post.fields.slug);
-
   return (
     <S.PostItemContainer
       to={post.fields.slug}

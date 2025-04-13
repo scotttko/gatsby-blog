@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { MOBILE_MEDIA_QUERY } from 'styles/theme';
 
 export const BioWrapper = styled.section`
@@ -9,6 +10,10 @@ export const BioWrapper = styled.section`
   gap: 12px;
   padding: 48px 0;
   width: 100%;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    padding: 36px 0;
+  }
 `;
 
 export const BioContainer = styled(motion.div)`
@@ -68,5 +73,13 @@ export const BioSocialWrapper = styled(motion.div)`
     &:hover {
       background-color: ${({ theme }) => theme.palette.buttonBgHoverColor};
     }
+  }
+`;
+
+export const BioImage = styled(GatsbyImage)`
+  border-radius: 16px;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    display: none;
   }
 `;

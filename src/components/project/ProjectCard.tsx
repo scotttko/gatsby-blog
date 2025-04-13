@@ -142,8 +142,8 @@ const ProjectTitle = styled.p`
   margin: 10px 0 6px;
 
   @media ${MOBILE_MEDIA_QUERY} {
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 18px;
     margin: 8px 0 4px;
   }
 `;
@@ -154,6 +154,11 @@ const ProjectDesc = styled.p`
   line-height: 1.5;
   margin-bottom: 8px;
   color: ${({ theme }) => theme.palette.subTextColor};
+  overflow: hidden;
+  display: -webkit-box;
+  word-break: break-word;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 
   @media ${MOBILE_MEDIA_QUERY} {
     font-size: 12px;

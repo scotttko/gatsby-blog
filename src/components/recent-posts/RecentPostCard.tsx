@@ -21,13 +21,13 @@ const RecentPostCard = ({ post }: RecentPostCardProps) => {
         <GatsbyImage
           image={thumbnail.childImageSharp.gatsbyImageData}
           alt="thumbnail"
-          style={{ borderRadius: '8px 8px 0 0', height: '160px' }}
+          style={{ borderRadius: '8px 8px 0 0', minHeight: '160px' }}
         />
       ) : (
         <S.CardThumb>thumbnail</S.CardThumb>
       )}
       <S.CardContent>
-        {title}
+        <S.CardTitle>{title}</S.CardTitle>
         <S.CardDate>{post.frontmatter.date}</S.CardDate>
       </S.CardContent>
     </S.RecentPostCard>

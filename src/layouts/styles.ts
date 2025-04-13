@@ -24,7 +24,7 @@ export const MainContainer = styled.main`
   padding: 60px 32px 0;
 
   @media ${MOBILE_MEDIA_QUERY} {
-    padding: 60px 16px 0;
+    padding: 60px 20px 0;
   }
 `;
 

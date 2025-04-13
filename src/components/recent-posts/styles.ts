@@ -29,8 +29,7 @@ export const RecentPostContainer = styled(motion.div)`
   width: 100%;
 
   @media ${MOBILE_MEDIA_QUERY} {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    grid-gap: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 `;
 
@@ -54,15 +53,36 @@ export const CardThumb = styled.div`
 
 export const CardContent = styled.div`
   padding: 16px;
-  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    padding: 12px;
+  }
+`;
+
+export const CardTitle = styled.p`
+  font-size: 16px;
   font-weight: 600;
   line-height: 20px;
+  color: ${({ theme }) => theme.palette.mainTextColor};
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 14px;
+    line-height: 18px;
+  }
 `;
 
 export const CardDate = styled.p`
   font-size: 14px;
   font-weight: 400;
-  margin-top: 8px;
+  margin-top: auto;
+
+  @media ${MOBILE_MEDIA_QUERY} {
+    font-size: 12px;
+  }
 `;
 
 export const PostLink = styled(Link)`

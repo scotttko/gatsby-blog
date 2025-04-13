@@ -1,9 +1,8 @@
-import { GatsbyImage } from 'gatsby-plugin-image';
 import { useMediaQuery } from 'react-responsive';
 import { MOBILE_MAXWIDTH } from 'styles/theme';
 import { Image, SiteMetadata } from 'types';
 import { fadeInVariants, staggerVariants } from 'utils/animations';
-
+import useCheckMounted from 'hooks/useCheckMounted';
 import * as S from './styles';
 
 interface BioProps {
@@ -14,6 +13,8 @@ interface BioProps {
 }
 const Bio = ({ data }: BioProps) => {
   const isMobile = useMediaQuery({ query: MOBILE_MAXWIDTH });
+  const isMounted = useCheckMounted();
+
   const { title, author, social } = data.metaData;
   const img = data.image;
 
@@ -34,8 +35,8 @@ const Bio = ({ data }: BioProps) => {
           <a href={social?.email ? `mailto:${social.email}` : ``}>Email</a>
         </S.BioSocialWrapper>
       </S.BioContainer>
-      {!isMobile && (
-        <GatsbyImage
+      {isMounted && !isMobile && (
+        <S.BioImage
           image={img.childImageSharp.gatsbyImageData}
           alt="profile image"
           style={{ borderRadius: '16px' }}

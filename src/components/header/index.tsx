@@ -21,15 +21,18 @@ const Header = ({ location }: HeaderProps) => {
               placeholder="blurred"
             />
           </S.HeaderLink>
-          <S.HeaderLink to="/posts" selected={pathname === '/posts/'}>
-            Posts
-          </S.HeaderLink>
-          <S.HeaderLink to="/about" selected={pathname === '/about/'}>
-            About
-          </S.HeaderLink>
-          <S.HeaderLink to="/projects" selected={pathname === '/projects/'}>
-            Projects
-          </S.HeaderLink>
+
+          <S.HeaderMenuList>
+            <S.HeaderLink to="/posts" selected={pathname === '/posts/'}>
+              Posts
+            </S.HeaderLink>
+            <S.HeaderLink to="/about" selected={pathname === '/about/'}>
+              About
+            </S.HeaderLink>
+            <S.HeaderLink to="/projects" selected={pathname === '/projects/'}>
+              Projects
+            </S.HeaderLink>
+          </S.HeaderMenuList>
         </S.HeaderMenu>
 
         <ThemeToggle />
