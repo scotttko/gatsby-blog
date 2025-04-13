@@ -70,6 +70,10 @@ $content-image-max-height: 560px;
   word-wrap: break-word;
 }
 
+.markdown u {
+  text-underline-offset: 5px;
+}
+
 .markdown details {
   display: block;
 }
@@ -748,6 +752,14 @@ $content-image-max-height: 560px;
   list-style-type: revert;
 }
 
+.markdown ul > li {
+  margin-bottom: 12px;
+}
+
+.markdown ul ul > li {
+  margin-bottom: 0;
+}
+
 .markdown li {
   display: list-item;
   word-wrap: break-all;
@@ -755,7 +767,8 @@ $content-image-max-height: 560px;
 }
 
 .markdown li > p {
-  margin-top: 16px;
+  margin-top: 0;
+  margin-bottom: 0 !important;
 }
 
 .markdown li + li {

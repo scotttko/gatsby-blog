@@ -8,7 +8,7 @@ status: LIVE
 tech: react-native React TypeScript tanstack-query zustand viem/wagmi openfort
 ---
 
-![web3-meme](./kropot-intro.png)
+![kropot-intro](./kropot-intro.png)
 
 <br />
 
@@ -21,8 +21,6 @@ Web2 => Web3 전환의 역할을 하는 React Native 리워드앱으로,
 유저는 익숙한 Web2 auth UX를 통해 지갑을 생성하고 다양한 컨텐츠로 획득한 포인트를 Web3 토큰으로 전환하여 손쉽게 Web3 서비스를 경험하게 된다.
 
 <br />
-
-**담당 역할**
 
 - 기존 Web3 지갑의 진입장벽을 낮추기 위해 Native AA(Account Abstraction) 기술을 도입하여
   지갑 생성에 대한 어려움을 대신하며 가스비 대납을 지원하는 등 유저 경험을 대폭 개선
@@ -38,217 +36,178 @@ Web2 => Web3 전환의 역할을 하는 React Native 리워드앱으로,
 
 <br />
 
-## 상세
+## 상세 역할
 
 <hr />
 
-###
+### <U>초기 개발환경 구축 및 문서화 진행</U>
 
-기술 블로그를 개설하고 첫 번째 글을 작성한지 벌써 2년 가까운 시간이 흘렀지만, 처음 다짐과는 달리 새로운 도메인에 도전하게 되면서 블로그 운영을 제대로 병행하지 못하였다 😭<br />
-그 동안 제가 실무에서 다룬 내용들과 그 안에서 배운 것들을 기록하지 못한 것에 아쉬움이 남지만 이제라도 하나씩 기록해나가기 위해 그 시작을 가볍게 블로그 개선기로 하려고 한다 (나름의 새해 다짐 비스무리한것,,)
+#### 개요
 
-<br />
+- Web3 기반 모바일 앱 개발을 위해 React Native + Expo 기반의 앱 초기 구조 세팅을 담당하였으며, 개발팀이 빠르게 공통 구조를 바탕으로 기능 구현에 집중할 수 있도록 환경 구성 및 문서화를 주도함.
 
-## 일단 만들긴 했는데..
+#### 주요 역할 및 기여
 
-이왕 블로그 운영할거 프론트엔드 개발을 하는 입장에서 직접 만들어봐도 의미가 있겠다 싶어서 만들긴 했습니다만..
-생각처럼 블로그를 활용하지 못하면서 처음 배포한 상태 그대로 방치되는 지경에 이르렀다. 그러다 이번에 블로그를 다시 살려보기 위해 살펴보니 처음 만들면서는 보이지 않았던 부족한 점들이 눈에 띄어 그 부분들을 먼저 수정하게 되었다. 그리고 이전 글에 TODO로 남겨두었던 추가 기능들 중에 필요하다고 생각되는 기능도 추가해 보았다.
+- Expo 기반 개발 환경 구성
+  - Expo + TypeScript + React Native 프로젝트 초기 세팅
+  - iOS/Android 디바이스에서 공통 개발 가능한 환경 구축 (expo run, expo start, eas build 등)
+  - 환경 별 .env 설정
+- 라우팅 및 구조 설계
+  - React Navigation 기반의 expo-router Stack/Tab 구조 정의 및 라우터 세팅
+  - 라우팅 구조에 맞춘 폴더 구조 구성
+- Atomic 컴포넌트 설계 및 공통 UI 구축
+  - 공통 UI 요소를 재사용 가능한 Atomic 구조(Button, Typo, Badge, Modal, Icon 등)로 구현
+  - 디자이너와 협업하여 variant 기반의 재사용성 높은 UI 컴포넌트화
+- 개발 가이드 및 코드 컨벤션 문서화
+  - 팀원들의 빠른 온보딩을 위해 Confluence 개발 컨벤션 가이드 작성
 
-그래서 이번 글엔 이러한 개선 사항들을 정리해보려고 한다.
+#### 성과
 
-<br />
-<hr />
+- 새로 투입된 팀원들이 빠르게 앱 구조를 이해하고 기능 개발 시작 가능
+- 공통 UI 컴포넌트 기반으로 개발 속도 및 UI 일관성 향상
+- Web3 + Native 환경에 익숙하지 않은 팀원들도 표준화된 개발 방식으로 쉽게 적응
 
-## 무엇을 개선했는가
+<!-- ### <U>Native AA(Account Abstraction) 지갑 통합</U>
 
-### 1. 다크모드
+#### 개요
 
-이전 글에서 [다크모드 구현 방식에 대해서 이런저런 설명](https://scottko.netlify.app/starting-gatsby-blog/#2-%EB%8B%A4%ED%81%AC%EB%AA%A8%EB%93%9C)을 했었는데, 다시 보니 최선의 방법은 아니였던 것 같다.
-기존엔 emotion의 `ThemeProvider`를 사용하여 context 방식으로 다크모드를 제어했었다. 그 과정에서 FoUC 문제를 해결하기 위해 `gatsby-ssr`에 접근하여 theme 데이터를 localStorage에서 받아와 적용하고 `useLayoutEffect`를 사용하여 theme state를 업데이트 하는 방식을 사용했다.
+- 기존 Web3 지갑 사용 시 발생하는 복잡한 지갑 생성 절차, 가스비 부담, UX 단절 문제를 해결하기 위해 Native AA 기술을 도입.
+- Openfort의 Embedded Wallet을 활용해 OAuth 기반 지갑 생성과 가스비 대납을 포함한 트랜잭션 실행을 React Native 환경에서 구현.
 
-그런데 해당 방식은 서버에서 렌더한 DOM에는 포함되지 않은 theme attribute가 `setPreBodyComponents`에서 삽입된 script로 인해 추가되면서 hydration mismatch 에러가 발생한다.
+#### 주요 역할 및 기여
 
-#### 해결 방법 1
-
-`replaceHydrateFunction`을 사용하면 hydration 에러는 사라진다.
-
-```typescript
-//gatsby-browser.tsx
-
-export const replaceHydrateFunction = () => {
-  return (element: ReactNode, container: ReactDOM.Container) => {
-    const root = ReactDOM.createRoot(container);
-    root.render(element);
-  };
-};
-```
-
-<br />
-
-하지만 이 방법은 좋은 방법이 아니다.
-
-그 이유는 `replaceHydrateFunction`이 어떤 역할을 하는지 파악하면 알 수 있다. 기본적으로 Gatsby가 hydration을 위해 `ReactDOM.hydrate()`를 사용하여 서버에서 렌더된 DOM을 사용하려고 하는데, `replaceHydrateFunction`은 이 방식을 `ReactDOM.render()`로 대체하겠다는 것이다.
-따라서, hydration을 하지 않고 서버에서 그린 DOM과 관계없이 클라이언트에서 다시 렌더링이 진행되고 hydration mismatch가 날 일도 사라지게 되는 것이다.
-
-그 말인즉슨, hydration의 이점을 살리지 못하고 DOM트리를 다시 그리게 되면서 성능 또한 저하되는 것이다.
-
-#### 해결 방법 2
-
-생각보다 쉽게 위의 문제를 해결할 수 있었다.
-
-```typescript
-//gatsby-ssr.tsx
-
-setHtmlAttributes({ lang: 'en', 'data-theme': 'dark' });
-```
+- WebView로 구성된 Openfort Embedded Wallet을 활용하여 사용자가 Google/Apple 로그인만으로 자동으로 AA 지갑 생성이 가능하도록 설계
+- ## OAuth 토큰 ↔ React Native ↔ WebView ↔ Openfort JS SDK 간 통신 구조 설계:
+   -->
 
 <br />
 
-서버에서는 theme 값을 알 수 없기 때문에 디폴트 값을 data-theme으로 설정하여 클라이언트와 상태를 맞춤으로 간단하게 해결했다.
+### <U>리워드 지급 컨텐츠 개발</U>
 
-#### CSS variables
+#### 개요
 
-위의 hydration 에러를 해결하면서 data-theme 속성을 사용했는데, theme 적용을 기존 ThemeProvider에서 theme 객체를 교체하는 방식에서 CSS variables로 변경했기 때문이다.
+- Web3 지갑 사용자의 지속적인 유입과 활동 유도를 위해 포인트 보상형 콘텐츠 및 미니게임 기능을 기획 및 개발하였으며, 앱 내 리텐션 요소로서 기능을 고도화하고 사용자별 리워드 흐름과의 연동까지 설계함.
 
-방식을 바꾼 이유는 기존 ThemeProvider를 통한 theme switch는 theme이 변경될 때마다 해당 theme 컬러값을 참조하는 모든 컴포넌트가 리렌더링되는 성능적인 이슈가 있었기 때문이다. 그리고 CSS 변수로 제어권을 넘기고 JS의 의존도를 낮춰서 테마 설정에 대한 불필요한 코드를 제거하는 목적도 있었다.
+#### 주요 역할 및 기여
 
-하지만 기존 ThemeProvider를 제거하기엔 공수가 너무 많이 들 것 같아서 ThemeProvider는 유지하면서 CSS 변수를 활용할 수 있도록 수정해보았다.
+- 다양한 인터랙티브 컨텐츠 개발
+  - 미니 게임 (다른 그림 찾기/카드 짝 맞추기)
+    - react-native-reanimated의 `useSharedValue`, `useAnimatedStyle`을 활용해 카드 flip 애니메이션 구현
+    - Animated 컴포넌트의 layout 트랜지션 활용하여 자연스러운 게임 뷰 전환 효과 적용
+    - 일부 낮은 스펙의 AOS 환경에서 `withTiming`이 정상적으로 동작하지 않는 이슈를 발견 => `requestAnimationFrame`으로 JS 스레드에서 동작하도록 수정하여 버그 해결
+    - 공유하기 기능 구현: 게임 실패 시 앱 공유 후 재도전 가능하도록 react-native-share 활용하여 공유하기 기능 구현
+  - OX/객관식 퀴즈
+    - 퀴즈 종류에 따라 시작/퀴즈/정답/오답 뷰 컴포넌트 설계
+    - 광고 보고 재시도 기능 구현
+  - Read to Earn (기사 읽고 포인트 받기)
+    - 10초 동안 news 페이지에 머무를 시 포인트 지급되도록 로직 구현
 
-```css
-:root {
-  --color-bg: #ffffff;
-  --color-sub-bg: #ededf1;
+<div style="display: flex; gap: 1rem; justify-content: center; width: 100%">
+  <video controls muted width="200" height="433">
+    <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744448221/pairing.mp4" type="video/mp4" />
+  </video>
 
-  --color-main-text: #000000;
-  --color-sub-text: #383a42;
+  <video controls muted width="200" height="433">
+    <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744448221/find-diff.mp4" type="video/mp4" />
+  </video>
 
-  --color-button-bg: #ededf1;
-  --color-button-bg-hover: #d8dadf;
-}
+   <video controls muted width="200" height="433">
+    <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744448222/multiple.mp4" type="video/mp4" />
+  </video>
 
-[data-theme='dark'] {
-  --color-bg: #25262c;
-  --color-sub-bg: #383a42;
+   <video controls muted width="200" height="433">
+    <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744448223/news.mp4" type="video/mp4" />
+  </video>
+</div>
 
-  --color-main-text: #ffffff;
-  --color-sub-text: #b5b9c4;
+<br />
+<br />
 
-  --color-button-bg: #383a42;
-  --color-button-bg-hover: #3f434d;
-}
-```
+### <U>유저 사용성 개선을 위한 UX 최적화 및 인터랙션 설계</U>
 
-```typescript
-export const defaultTheme = {
-  palette: {
-    bgColor: 'var(--color-bg)',
-    subBgColor: 'var(--color-sub-bg)',
+#### 개요
 
-    mainTextColor: 'var(--color-main-text)',
-    subTextColor: 'var(--color-sub-text)',
+- 앱 사용성을 높이고, 유저의 행동 유도 및 컨텐츠 몰입도를 향상시키기 위해 UX 측면에서의 개선 아이디어 도출과 기술적 구현을 병행
 
-    buttonBgColor: 'var(--color-button-bg)',
-    buttonBgHoverColor: 'var(--color-button-bg-hover)',
-  },
-};
-```
+#### 주요 역할 및 기여
+
+- 홈 화면 로딩 시 Layout Shift 최적화
+
+  - useQuery의 isLoading 상태를 명령형으로 처리하던 초기 컴포넌트 구조가 데이터 로딩 후 레이아웃 트랜지션과 함께 렌더됨으로 인해 홈 화면에서 심각한 레이아웃 쉬프트 발생
+  - 이를 해결하고 사용자 경험을 일관되게 유지하기 위해 `useSuspenseQuery`와 `<Suspense>`를 조합하여 선언형 방식으로 컴포넌트 구성
+  - 로딩 UI와 렌더되는 컴포넌트의 책임이 분리되어 가독성 및 유지보수 향상
+  - 스켈레톤 컴포넌트를 로딩 UI로 활용하여 layout shift 개선 및 시각적 안정성 향상
+
+<div style="display: flex; gap: 1rem; justify-content: center; width: 100%">
+  <div style="display: flex; flex-direction: column; align-items: center">
+    <video controls muted width="200" height="433">
+      <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744451785/home-before.mp4" type="video/mp4" />
+    </video>
+     <p>Before</p>
+  </div>
+
+  <div style="display: flex; flex-direction: column; align-items: center">
+    <video controls muted width="200" height="433">
+      <source src="https://res.cloudinary.com/dskwaqugd/video/upload/v1744451786/home-after.mp4" type="video/mp4" />
+    </video>
+    <p>After</p>
+  </div>
+</div>
+
+<!-- - TabBar 상단 스크롤 기능 구현
+
+  - 유저가 다시 최상단까지 스크롤하는 불편함을 해소하기 위해 하단 탭바의 해당 탭 아이템 터치 시 최상단으로 스크롤되는 추가 기능 제안 및 구현
+  - 현재 라우트에 해당하는 스크롤뷰의 스크롤 포지션 감지하고 최상단으로 scrollTo 처리하도록 `useScrollViewRef` 커스텀 훅 및 global 스토어 활용 -->
+
+- 스크롤 사용성 개선
+
+  - TabBar 상단 스크롤 기능 구현
+    - 유저가 다시 최상단까지 스크롤하는 불편함을 해소하기 위해 하단 탭바의 해당 탭 아이템 터치 시 최상단으로 스크롤되는 추가 기능 제안 및 구현
+    - 현재 라우트에 해당하는 스크롤뷰의 스크롤 포지션 감지하고 최상단으로 scrollTo 처리하도록 `useScrollViewRef` 커스텀 훅 및 global 스토어 활용
+  - 스토어 토큰 정보 sticky 고정 처리
+    - 유저가 쿠폰 구매 페이지에서 스크롤을 내리더라도 보유 토큰 정보를 상단에 노출시켜 정보 접근성 향상시킴
+
+- 쿠폰 구매에 필요한 조건 넛지 구현
+
+  - 기존에 쿠폰 구매 가능한 상태가 아니라면 토큰이 부족하다는 버튼 disabled 처리에 그치던 UX가 유저 친화적이지 못하다는 피드백에 따라, 유저가 쿠폰 구매를 위해 필요한 포인트 혹은 토큰 수량이 부족할 경우, 부족한 수량을 노출하고 필요한 활동을 안내하여 적극적인 앱 사용 유도
+  - 쿠폰 금액과 보유 토큰/포인트 수량을 비교하여 구매 조건 충족하는지 체크하는 로직 구현
+    - 토큰 수량은 부족하지만 토큰 전환할 만큼의 포인트를 보유하고 있는 경우, 필요한 포인트 수량을 입력시킨 상태의 포인트 전환 페이지로 이동시킴
+    - 토큰과 포인트 모두 부족할 경우, 친구 초대 이벤트 혹은 미니게임/퀴즈 등의 포인트 지급 컨텐츠로 유도시킴
+
+- '별빛 밝히기' 기능 아이디어 제공
+  - 유저 리텐션을 높이기 위한 출석 체크 기반의 '별빛 밝히기' 기능 구현
+  - Github 잔디 그래프에서 착안하여, 유저의 컨텐츠 참여도에 따라 별빛의 밝기를 다르게 보여주도록 하는 아이디어 제안하여 기획 단계부터 기능 구현까지 모든 과정에 참여
+
+<div style="display: flex; gap: 1rem; justify-content: center; width: 100%; max-width: 500px; margin: 0 auto">
+  <img src="./starlight-1.png" alt="starlight-image-1" />
+  <img src="./starlight-2.png" alt="starlight-image-2" />
+</div>
 
 <br />
 
-이렇게 필요한 테마 컬러들에 대해 CSS 변수를 전역 스타일로 지정한 후, defaultTheme과 같은 theme 객체를 만들어 ThemeProvider에 주입했다.
-이로써 최소한의 코드 수정을 통해 기존 코드 베이스에서 CSS 변수를 사용하도록 변경하였고 처음 선언된 CSS 변수를 브라우저에서 스위칭하기 떄문에, 테마 변경에 대한 컴포넌트 리렌더링은 더 이상 발생하지 않는다.
-
-### 2. TOC (Table of Contents)
-
-TOC 기능은 글의 목차를 보여주고 해당 목차에 링크를 걸어 이동시켜주는 역할을 하는 기능이다.
-대부분의 블로그가 지원하는 기능이기도 하고 블로그에 방문자들이 글을 읽을 때 있으면 편할 것 같아서 가장 먼저 추가하게 되었다.
-
-우선 Gatsby의 플러그인 중 `gatsby-remark-autolink-headers`라는 플러그인을 사용하여 마크다운 파일의 header에 링크를 걸어주었다.
-
-그 다음, 각 포스트 마크다운에 대한 TOC를 받아오기 위해 `gatsby-transformer-remark`의 `tableOfContents` 필드를 쿼리에 추가하여 header를 html으로 파싱한 데이터를 받아온다.
-
-```typescript
-//gatsby-config.ts
-
- {
-    resolve: `gatsby-remark-autolink-headers`,
-    options: {
-      elements: [`h1`, `h2`, `h3`],
-    },
- }
-```
-
-```graphql
-  markdownRemark(id: { eq: $id }) {
-    ...
-    tableOfContents(maxDepth: 3)
-  }
-```
+- 네트워크 연결 예외 처리 및 비연결 상태 UI 제공
+  - `@react-native-community/netinfo`를 활용하여 네트워크 연결 상태를 실시간 모니터링
+  - 연결이 끊겼을 경우, 화면 전체를 커버하는 “네트워크 연결 안됨” 뷰를 표시하여 사용자 혼란 방지
+  - `ErrorBoundary`를 활용하여 네트워크 문제와 API 에러에 대한 예외처리를 함께 적용
 
 <br />
 
-이제 파싱한 TOC 데이터를 그려야 하는데 `dangerouslySetInnerHTML`를 사용하여 UI 자체는 큰 문제 없이 구현할 수 있었다.
-이 기능을 구현하면서 내가 신경 쓴 부분은 내가 위치한 header에 대한 하이라이팅 기능이였는데,
-나는 `IntersectionObserver`를 사용하여 header 태그의 intersected 상태를 확인하고 하이라이트 되도록 구현하였다.
+### <U>리스트 렌더링 성능 최적화</U>
 
-```ts
-  ...
+#### 개요
 
-  const handleScroll = (entries: IntersectionObserverEntry[]) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setActiveId(entry.target.id);
-      }
-    });
-  };
+- 기존 쿠폰 리스트 페이지가 Intersection Observer를 활용한 무한 스크롤 형태로 구현되어 있었으나, 스크롤에 따라 리스트가 길어질수록 일부 안드로이드 기기에서 스크롤 렉 현상이 발생
+- 해당 문제를 해결하기 위해 React Native 공식 문서의 [FlatList 최적화 가이드](https://reactnative.dev/docs/optimizing-flatlist-configuration)를 바탕으로 리스트 렌더링을 정밀하게 튜닝하고, 스크롤 성능을 체감적으로 향상시킴
 
-  useEffect(() => {
-    observer.current = new IntersectionObserver(handleScroll, { rootMargin: `0% 0% -80% 0%` });
+#### 주요 역할 및 기여
 
-    const anchors: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(`.${id} a`);
-    const anchorArr = Array.from(anchors);
-
-    if (anchorArr) {
-      const tocList = anchorArr.map((a) => getDecodedLink(a.hash));
-      tocList.forEach((elId) => {
-        const el = document.getElementById(elId);
-        if (el) {
-          observer.current?.observe(el);
-        }
-      });
-    }
-
-    return () => observer && observer.current?.disconnect();
-  }, [id]);
-
-  ...
-};
-```
-
-<br />
-
-### 3. 포스트 카테고리 기능
-
-각 포스트를 카테고리화하면 포스트의 목적에 따라 분류하고 방문자들도 원하는 글만 추려서 보기 좋을 것 같아서 추가하였다.
-이 기능은 구현하기 크게 어려운 점은 없었다. 각 포스트 글의 메타데이터에 categories 필드를 추가하고 해당 데이터를 공백 기준으로 split해서 카테고리 리스트를 추가헸다.
-
-```mdx
-title: 기술 블로그 개선하기
-date: '2025-01-27T00:00:00Z'
-thumbnail: ./blog-imp.jpg
-categories: Dev 회고
-```
-
-<br />
-
-### 4. Inter local font 적용
-
-한글 수직 정렬이 안 맞는 것 같아서 확인해보니 font를 따로 추가하지 않아서 발생하는 문제였다.
-그래서 어떻게 적용할까 하다 [Gatsby 문서](https://www.gatsbyjs.com/docs/how-to/styling/using-local-fonts/)에 따라 Inter local font를 추가하였다.
-
-<br />
-<hr />
-
-## 마치며
-
-이번 글은 기술적으로 큰 의미가 있진 않았지만, 다시 블로그를 잘 운영해보겠다는 나의 마음가짐을 담아 재정비하는 의미로 적어보았다. 앞으로는 기술적인 내용 뿐만 아니라, 평소에 고민하고 그 안에서 깨닫는 것들도 함께 기록하면서 다가오는 2025년을 더 의미있게 보낼 수 있길 바라본다.
+- Flatlist 렌더링 옵션 조정
+  - removeClippedSubviews: 화면 밖 뷰 제거로 메모리 절약 (true)
+  - maxToRenderPerBatch: 스크롤 중 한번에 렌더할 항목 수 제한 (8)
+  - getItemLayout: 고정 높이 레이아웃 최적화로 스크롤 위치 계산 비용 절감
+- 이미지 최적화
+  - 각 쿠폰 아이템의 이미지를 기존 `expo-image`에서 `@d11/react-native-fast-image`로 교체하여 이미지 최적화 적용
+  - 기존 이미지 컴포넌트는 JS스레드에서 이미지 로드까지 처리함에 반해 `react-native-fast-image`는 네이티브 레이어에서 이미지 요청과 캐싱을 처리하기 떄문에 JS스레드를 이미지 작업에서빠르게 해방시키고 결과적으로 렌더링 및 UI 반응성을 향상시킴
+- 불필요한 리렌더링 방지
+  - renderItem 함수를 JSX 외부에 위치시키고 useCallback과 memo()를 활용하여 불필요한 리스트 리렌더링 방지
+  - keyExtractor 정의하여 diff 성능 개선
