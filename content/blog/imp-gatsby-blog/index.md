@@ -24,7 +24,7 @@ categories: Dev 회고
 
 ### 1. 다크모드
 
-이전 글에서 [다크모드 구현 방식에 대해서 이런저런 설명](https://scottko.netlify.app/starting-gatsby-blog/#2-%EB%8B%A4%ED%81%AC%EB%AA%A8%EB%93%9C)을 했었는데, 다시 보니 최선의 방법은 아니였던 것 같다.
+이전 글에서 [다크모드 구현 방식에 대해서 이런저런 설명](https://scottko.netlify.app/posts/starting-gatsby-blog/#2-%EB%8B%A4%ED%81%AC%EB%AA%A8%EB%93%9C)을 했었는데, 다시 보니 최선의 방법은 아니였던 것 같다.
 기존엔 emotion의 `ThemeProvider`를 사용하여 context 방식으로 다크모드를 제어했었다. 그 과정에서 FoUC 문제를 해결하기 위해 `gatsby-ssr`에 접근하여 theme 데이터를 localStorage에서 받아와 적용하고 `useLayoutEffect`를 사용하여 theme state를 업데이트 하는 방식을 사용했다.
 
 그런데 해당 방식은 서버에서 렌더한 DOM에는 포함되지 않은 theme attribute가 `setPreBodyComponents`에서 삽입된 script로 인해 추가되면서 hydration mismatch 에러가 발생한다.
