@@ -47,7 +47,7 @@ export const HeaderLink = styled(Link)<{ selected: boolean; padding?: string }>`
   align-items: center;
   font-size: 18px;
   line-height: 1.5;
-  font-weight: 700;
+  font-weight: 600;
   color: ${({ selected, theme }) => (selected ? '#0a87ef' : theme.palette.mainTextColor)};
   padding: ${({ padding }) => padding || '6px 12px'};
   border-radius: 8px;
